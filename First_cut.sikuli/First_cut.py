@@ -19,7 +19,7 @@ class TestUM(unittest.TestCase):
         wait('Button_MediaPathWindow.png')
         click('Button_MediaPathWindow.png')
         type("C:\\Users\\nbhushan\\Desktop\\"+Key.ENTER)
-        wait('MediaFileName.png')
+        wait('Media_FileName.png')
         doubleClick('Media_FileName.png')
         wait('Button_ExpertRoom.png')
         click('Button_ExpertRoom.png')
