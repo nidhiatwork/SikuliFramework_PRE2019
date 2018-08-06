@@ -75,14 +75,12 @@
 <span class="kw">import</span> StringIO
 <span class="kw">import</span> HTMLTestRunner
 <span class="kw">import</span> xlrd
-sys.path.append(<span class="str">'C:\Users\nbhushan\Downloads\SikuliFramework_PRE2019\Constants'</span>)
-<span class="kw">import</span> Constants
 setAutoWaitTimeout(<span class="dig">10</span>)
 
 <span class="kw">class</span> TestUM(unittest.TestCase):
 
     <span class="kw">def</span> test_step2_handleGoalScreen(self):
-        <span class="kw">print</span> Constants.A
+        <span class="kw">print</span> sys.path
 
 suite = unittest.TestLoader().loadTestsFromTestCase(TestUM)
 

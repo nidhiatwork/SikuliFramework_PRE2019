@@ -21,26 +21,15 @@ class TestUM(unittest.TestCase):
         
         
     def test_step3_effects(self):
-        if not exists('BaselineIMG_ActiveQuickRoom.png'):
-            click('Button_QuickRoom.png')       
-        wait('AddMedia.png')
-        click('AddMedia.png')
-        wait('DropDown_FilesAndFolders.png')
-        click('DropDown_FilesAndFolders.png')
-        
-        wait('Button_MediaPathWindow.png')
-        click('Button_MediaPathWindow.png')
-        type("C:\\Users\\nbhushan\\Desktop\\"+Key.ENTER)
-        wait('Media_FileName.png')
-        doubleClick('Media_FileName.png')
-        wait('Button_ExpertRoom.png')
-        click('Button_ExpertRoom.png')
+        if not exists('Button_ExpertRoom_Active.png'):
+            click('Button_ExpertRoom.png')  
         if exists('Button_RoomSwitch_Continue.png'):
             click('Button_RoomSwitch_Continue.png')
         wait('BaselineIMG_ExportButtonInExpert.png')   
         wait(2) 
-            
+        
         wait('Button_RHSPanels_Effects.png')
+        
         click('Button_RHSPanels_Effects.png')
         wait('DropDown_EffectsPanel_AllCategories.png')
         click('DropDown_EffectsPanel_AllCategories.png')
@@ -48,7 +37,7 @@ class TestUM(unittest.TestCase):
         click('NonClickable_EffectsPanel_EffectsText.png')
         hover('Button_EffectsPanel_SearchEffect.png')
         
-        workbook = xlrd.open_workbook('C:\\Users\\nbhushan\\Desktop\\PRE_Effects.xls')
+        workbook = xlrd.open_workbook('C:\\Users\\nbhushan\\Downloads\\SikuliFramework_PRE2019\\TestData\\PRE_Effects.xls')
         worksheet = workbook.sheet_by_index(0)
         effects_list = worksheet.col_values(0)
         for i in range (1, len(effects_list)):

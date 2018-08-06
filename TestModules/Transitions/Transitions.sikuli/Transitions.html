@@ -67,7 +67,7 @@
    </head>
 <body>
 <div class="info">
-<h2>SearchEffects.sikuli</h2> <a href="SearchEffects.zip">(Download this script)</a>
+<h2>Transitions.sikuli</h2> <a href="Transitions.zip">(Download this script)</a>
 </div>
 <pre class="sikuli-code">
 <span class="kw">import</span> unittest
@@ -92,38 +92,40 @@ setAutoWaitTimeout(<span class="dig">10</span>)
             <span class="skw">wait</span>(<span class="str">'BaselineIMG_PREMenuBar.png'</span>)
 
 
-    <span class="kw">def</span> test_step3_effects(self):
+    <span class="kw">def</span> test_step3_transitions(self):
         <span class="kw">if</span> <span class="kw">not</span> exists(<span class="str">'Button_ExpertRoom_Active.png'</span>):
             <span class="skw">click</span>(<span class="str">'Button_ExpertRoom.png'</span>)
+
         <span class="kw">if</span> exists(<span class="str">'Button_RoomSwitch_Continue.png'</span>):
             <span class="skw">click</span>(<span class="str">'Button_RoomSwitch_Continue.png'</span>)
         <span class="skw">wait</span>(<span class="str">'BaselineIMG_ExportButtonInExpert.png'</span>)
         <span class="skw">wait</span>(<span class="dig">2</span>)
 
-        <span class="skw">wait</span>(<span class="str">'Button_RHSPanels_Effects.png'</span>)
+        <span class="skw">click</span>(<span class="str">'Button_RHSPanels_Transitions.png'</span>)
 
-        <span class="skw">click</span>(<span class="str">'Button_RHSPanels_Effects.png'</span>)
-        <span class="skw">wait</span>(<span class="str">'DropDown_EffectsPanel_AllCategories.png'</span>)
-        <span class="skw">click</span>(<span class="str">'DropDown_EffectsPanel_AllCategories.png'</span>)
-        <span class="skw">wait</span>(<span class="str">'BaselineIMG_Effects_AllCategories.png'</span>)
-        <span class="skw">click</span>(<span class="str">'NonClickable_EffectsPanel_EffectsText.png'</span>)
-        hover(<span class="str">'Button_EffectsPanel_SearchEffect.png'</span>)
+        <span class="skw">wait</span>(<span class="str">'DropDown_TransitionssPanel_AllCategories.png'</span>)
+        <span class="skw">click</span>(<span class="str">'DropDown_TransitionssPanel_AllCategories.png'</span>)
+        <span class="skw">wait</span>(<span class="str">'BaselineIMG_Transitions_AllCategories.png'</span>)
 
-        workbook = xlrd.open_workbook(<span class="str">'C:\\Users\\nbhushan\\Downloads\\SikuliFramework_PRE2019\\TestData\\PRE_Effects.xls'</span>)
+        <span class="skw">click</span>(<span class="str">'NonClickable_TransitionsPanel_EffectsText.png'</span>)
+        hover(<span class="str">'Button_TransitonPanel_SearchTransition.png'</span>)
+
+        workbook = xlrd.open_workbook(<span class="str">'C:\\Users\\nbhushan\\Downloads\\SikuliFramework_PRE2019\\TestData\\PRE_Transitions.xls'</span>)
         worksheet = workbook.sheet_by_index(<span class="dig">0</span>)
-        effects_list = worksheet.col_values(<span class="dig">0</span>)
-        <span class="kw">for</span> i <span class="kw">in</span> range (<span class="dig">1</span>, len(effects_list)):
-            effect = worksheet.cell(i, <span class="dig">0</span>).value
-            <span class="skw">wait</span>(<span class="str">'Button_EffectsPanel_SearchEffect_active.png'</span>)
-            <span class="skw">click</span>(<span class="str">'Button_EffectsPanel_SearchEffect_active.png'</span>)
+        transitions_list = worksheet.col_values(<span class="dig">0</span>)
+        <span class="kw">for</span> i <span class="kw">in</span> range (<span class="dig">1</span>, len(transitions_list)):
+            transition = worksheet.cell(i, <span class="dig">0</span>).value
+            <span class="skw">wait</span>(<span class="str">'Button_TransitionPanel_SearchTransition_active.png'</span>)
+            <span class="skw">click</span>(<span class="str">'Button_TransitionPanel_SearchTransition_active.png'</span>)
+            <span class="skw">type</span>(transition)
+            <span class="skw">wait</span>(<span class="str">'BaselineIMG_TransitionPanel_SearchedTransition.png'</span>)
 
-            <span class="skw">type</span>(effect)
-            <span class="kw">if</span> exists(<span class="str">'BaselineIMG_EffectsPanel_SearchedEffect.png'</span>):
-                <span class="kw">print</span>(effect + <span class="str">" effect appeared."</span>)
+            <span class="kw">if</span> exists(<span class="str">'BaselineIMG_TransitionPanel_SearchedTransition.png'</span>):
+                <span class="kw">print</span>(transition + <span class="str">" transition appeared."</span>)
             <span class="kw">else</span>:
-                <span class="kw">print</span>(effect + <span class="str">" effect did not appear!"</span>)
+                <span class="kw">print</span>(transition + <span class="str">" transition did not appear!"</span>)
 
-            <span class="skw">click</span>(<span class="str">'Button_EffectsPanel_ClearEffectSearch.png'</span>)
+            <span class="skw">click</span>(<span class="str">'Button_TransitionPanel_ClearTransitionSearch.png'</span>)
 
     <span class="kw">def</span> test_step4_teardown(self):
         <span class="skw">type</span>(<span class="str">"r"</span>, KEY_WIN)
@@ -136,7 +138,7 @@ fp = file(<span class="str">'my_report.html'</span>, <span class="str">'wb'</spa
 runner = HTMLTestRunner.HTMLTestRunner(
                 stream=fp,
                 title=<span class="str">'My unit test'</span>,
-                description=<span class="str">'Test report for searching all Effects in PRE.'</span>
+                description=<span class="str">'Test report for searching all Transitions in PRE.'</span>
                 )
 runner.run(suite)
 </pre>

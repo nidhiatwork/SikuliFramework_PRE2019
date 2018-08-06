@@ -3,14 +3,12 @@ import sys
 import StringIO
 import HTMLTestRunner
 import xlrd
-sys.path.append('C:\Users\nbhushan\Downloads\SikuliFramework_PRE2019\Constants')
-import Constants
 setAutoWaitTimeout(10)
 
 class TestUM(unittest.TestCase):
                     
     def test_step2_handleGoalScreen(self):
-        print Constants.A
+        print sys.path
         
 suite = unittest.TestLoader().loadTestsFromTestCase(TestUM)
 
