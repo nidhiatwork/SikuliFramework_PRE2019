@@ -5,29 +5,28 @@ import HTMLTestRunner
 import xlrd
 setAutoWaitTimeout(10)
 
-class TestUM(unittest.TestCase):
+class Test_Search_Effects(unittest.TestCase):
 
     def test_step1_setup(self):       
         type("r", KEY_WIN)
+        type("C:\\Users\\nbhushan\\Desktop\\SikuliFramework_PRE2019\\BatFiles\\Clear_PRE_Cache.bat")
+        type(Key.ENTER)
+        wait(3)
+        type("r", KEY_WIN)
         type("C:\Program Files\Adobe\Adobe Premiere Elements 2019\PremiereElementsEditor.exe")
         type(Key.ENTER)
+        wait(5)
         wait('BaselineIMG_PREFileMenu.png')
-              
-       
+                  
     def test_step2_handleGoalScreen(self):
-        if exists('BaselineIMG_GoalScreen.png'):
-            click('Buton_GoalScreen_CloseGoalScreen.png')
-            wait('BaselineIMG_PREMenuBar.png')
-        
-        
+        wait('Buton_GoalScreen_CloseGoalScreen.png')
+        click('Buton_GoalScreen_CloseGoalScreen.png')
+        wait('BaselineIMG_PREMenuBar.png')
+            
     def test_step3_effects(self):
-        if not exists('Button_ExpertRoom_Active.png'):
-            click('Button_ExpertRoom.png')  
-        if exists('Button_RoomSwitch_Continue.png'):
-            click('Button_RoomSwitch_Continue.png')
+        click('Button_ExpertRoom.png')         
         wait('BaselineIMG_ExportButtonInExpert.png')   
-        wait(2) 
-        
+        wait(2)         
         wait('Button_RHSPanels_Effects.png')
         
         click('Button_RHSPanels_Effects.png')
@@ -55,15 +54,19 @@ class TestUM(unittest.TestCase):
     
     def test_step4_teardown(self):
         type("r", KEY_WIN)
-        type("C:\\Users\\nbhushan\\Desktop\\KillPre_App.bat")
+        type("C:\\Users\\nbhushan\\Desktop\\SikuliFramework_PRE2019\\BatFiles\\KillPre_App.bat")
         type(Key.ENTER)     
-        
-suite = unittest.TestLoader().loadTestsFromTestCase(TestUM)
 
-fp = file('my_report.html', 'wb')
+Settings.ActionLogs = False
+Settings.InfoLogs = False
+Settings.DebugLogs = False
+
+suite = unittest.TestLoader().loadTestsFromTestCase(Test_Search_Effects)
+
+fp = file('SearchEffects.html', 'wb')
 runner = HTMLTestRunner.HTMLTestRunner(
                 stream=fp,
-                title='My unit test',
+                title='Search Effects Test',
                 description='Test report for searching all Effects in PRE.'
                 )
 runner.run(suite)

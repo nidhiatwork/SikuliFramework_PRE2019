@@ -70,32 +70,7 @@
 <h2>test.sikuli</h2> <a href="test.zip">(Download this script)</a>
 </div>
 <pre class="sikuli-code">
-<span class="kw">import</span> unittest
-<span class="kw">import</span> sys
 
-<span class="kw">import</span> os
-<span class="kw">import</span> HTMLTestRunner
-
-setAutoWaitTimeout(<span class="dig">10</span>)
-
-
-<span class="kw">class</span> TestUM(unittest.TestCase):
-
-    <span class="kw">def</span> test_step2_handleGoalScreen(self):
-       name = <span class="str">"nidhi"</span>
-       <span class="kw">print</span>(<span class="str">"Hello for"</span> + name + <span class="str">"name"</span>)
-
-
-
-suite = unittest.TestLoader().loadTestsFromTestCase(TestUM)
-
-fp = file(<span class="str">'my_report.html'</span>, <span class="str">'wb'</span>)
-runner = HTMLTestRunner.HTMLTestRunner(
-                stream=fp,
-                title=<span class="str">'My unit test'</span>,
-                description=<span class="str">'Test report for searching all Effects in PRE.'</span>
-                )
-runner.run(suite)
 </pre>
 </body>
 </html>

@@ -77,29 +77,28 @@
 <span class="kw">import</span> xlrd
 setAutoWaitTimeout(<span class="dig">10</span>)
 
-<span class="kw">class</span> TestUM(unittest.TestCase):
+<span class="kw">class</span> Test_Search_Effects(unittest.TestCase):
 
     <span class="kw">def</span> test_step1_setup(self):
         <span class="skw">type</span>(<span class="str">"r"</span>, KEY_WIN)
+        <span class="skw">type</span>(<span class="str">"C:\\Users\\nbhushan\\Desktop\\SikuliFramework_PRE2019\\BatFiles\\Clear_PRE_Cache.bat"</span>)
+        <span class="skw">type</span>(Key.ENTER)
+        <span class="skw">wait</span>(<span class="dig">3</span>)
+        <span class="skw">type</span>(<span class="str">"r"</span>, KEY_WIN)
         <span class="skw">type</span>(<span class="str">"C:\Program Files\Adobe\Adobe Premiere Elements 2019\PremiereElementsEditor.exe"</span>)
         <span class="skw">type</span>(Key.ENTER)
+        <span class="skw">wait</span>(<span class="dig">5</span>)
         <span class="skw">wait</span>(<span class="str">'BaselineIMG_PREFileMenu.png'</span>)
 
-
     <span class="kw">def</span> test_step2_handleGoalScreen(self):
-        <span class="kw">if</span> exists(<span class="str">'BaselineIMG_GoalScreen.png'</span>):
-            <span class="skw">click</span>(<span class="str">'Buton_GoalScreen_CloseGoalScreen.png'</span>)
-            <span class="skw">wait</span>(<span class="str">'BaselineIMG_PREMenuBar.png'</span>)
-
+        <span class="skw">wait</span>(<span class="str">'Buton_GoalScreen_CloseGoalScreen.png'</span>)
+        <span class="skw">click</span>(<span class="str">'Buton_GoalScreen_CloseGoalScreen.png'</span>)
+        <span class="skw">wait</span>(<span class="str">'BaselineIMG_PREMenuBar.png'</span>)
 
     <span class="kw">def</span> test_step3_effects(self):
-        <span class="kw">if</span> <span class="kw">not</span> exists(<span class="str">'Button_ExpertRoom_Active.png'</span>):
-            <span class="skw">click</span>(<span class="str">'Button_ExpertRoom.png'</span>)
-        <span class="kw">if</span> exists(<span class="str">'Button_RoomSwitch_Continue.png'</span>):
-            <span class="skw">click</span>(<span class="str">'Button_RoomSwitch_Continue.png'</span>)
+        <span class="skw">click</span>(<span class="str">'Button_ExpertRoom.png'</span>)
         <span class="skw">wait</span>(<span class="str">'BaselineIMG_ExportButtonInExpert.png'</span>)
         <span class="skw">wait</span>(<span class="dig">2</span>)
-
         <span class="skw">wait</span>(<span class="str">'Button_RHSPanels_Effects.png'</span>)
 
         <span class="skw">click</span>(<span class="str">'Button_RHSPanels_Effects.png'</span>)
@@ -127,15 +126,19 @@ setAutoWaitTimeout(<span class="dig">10</span>)
 
     <span class="kw">def</span> test_step4_teardown(self):
         <span class="skw">type</span>(<span class="str">"r"</span>, KEY_WIN)
-        <span class="skw">type</span>(<span class="str">"C:\\Users\\nbhushan\\Desktop\\KillPre_App.bat"</span>)
+        <span class="skw">type</span>(<span class="str">"C:\\Users\\nbhushan\\Desktop\\SikuliFramework_PRE2019\\BatFiles\\KillPre_App.bat"</span>)
         <span class="skw">type</span>(Key.ENTER)
 
-suite = unittest.TestLoader().loadTestsFromTestCase(TestUM)
+Settings.ActionLogs = False
+Settings.InfoLogs = False
+Settings.DebugLogs = False
 
-fp = file(<span class="str">'my_report.html'</span>, <span class="str">'wb'</span>)
+suite = unittest.TestLoader().loadTestsFromTestCase(Test_Search_Effects)
+
+fp = file(<span class="str">'SearchEffects.html'</span>, <span class="str">'wb'</span>)
 runner = HTMLTestRunner.HTMLTestRunner(
                 stream=fp,
-                title=<span class="str">'My unit test'</span>,
+                title=<span class="str">'Search Effects Test'</span>,
                 description=<span class="str">'Test report for searching all Effects in PRE.'</span>
                 )
 runner.run(suite)

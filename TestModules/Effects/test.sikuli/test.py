@@ -1,14 +1,19 @@
 import unittest
 import sys
-import StringIO
+
+import os
 import HTMLTestRunner
-import xlrd
+
 setAutoWaitTimeout(10)
+
 
 class TestUM(unittest.TestCase):
                     
     def test_step2_handleGoalScreen(self):
-        print sys.path
+       name = "nidhi"
+       print("Hello for" + name + "name")
+        
+        
         
 suite = unittest.TestLoader().loadTestsFromTestCase(TestUM)
 
