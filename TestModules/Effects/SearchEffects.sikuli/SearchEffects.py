@@ -33,29 +33,71 @@ class Test_Search_Effects(unittest.TestCase):
         wait('DropDown_EffectsPanel_AllCategories.png')
         click('DropDown_EffectsPanel_AllCategories.png')
         wait('BaselineIMG_Effects_AllCategories.png')
-        click('NonClickable_EffectsPanel_EffectsText.png')
-        hover('Button_EffectsPanel_SearchEffect.png')
+
+        click('Effects_Category_AdvancedAdjustments.png')
+        assert(exists('Effects_Category_AdvancedAdjustments_items.png'))
+        click('Button_EffectCategories_Next.png')
+       
+        assert(exists('Effects_Category_BlurSharpen_items.png'))   
+        click('Button_EffectCategories_Next.png')
         
-        workbook = xlrd.open_workbook('C:\\Users\\nbhushan\\Downloads\\SikuliFramework_PRE2019\\TestData\\PRE_Effects.xls')
-        worksheet = workbook.sheet_by_index(0)
-        effects_list = worksheet.col_values(0)
-        for i in range (1, len(effects_list)):
-            effect = worksheet.cell(i, 0).value
-            wait('Button_EffectsPanel_SearchEffect_active.png')
-            click('Button_EffectsPanel_SearchEffect_active.png')
-            
-            type(effect)
-            if exists('BaselineIMG_EffectsPanel_SearchedEffect.png'):
-                print(effect + " effect appeared.")
-            else:
-                print(effect + " effect did not appear!")
-            
-            click('Button_EffectsPanel_ClearEffectSearch.png')           
+        assert(exists('Effects_Category_Channel_items.png'))
+        click('Button_EffectCategories_Next.png')
+
+        assert(exists('Effects_Categories_ColorCorrection_items.png'))
+        click('Button_EffectCategories_Next.png')
+
+        assert(exists('Effects_Categories_Distort_items.png'))
+        click('Button_EffectCategories_Next.png')
+
+        assert(exists('Effects_Categories_Generate_items.png'))
+        click('Button_EffectCategories_Next.png')
+
+        assert(exists('Effects_Categories_ImageControl_items.png'))
+        click('Button_EffectCategories_Next.png')
+
+        assert(exists('Effects_Categories_Keying_items.png'))
+        click('Button_EffectCategories_Next.png')
+
+        assert(exists('Effects_Categories_NewBlueArtEffects_items.png'))
+        click('Button_EffectCategories_Next.png')
+
+        assert(exists('Effects_Categories_NewBlueCartoonrPlus_items.png'))
+        click('Button_EffectCategories_Next.png')
+
+        assert(exists('Effects_Categories_NewBlueFilmLooks_items.png'))
+        click('Button_EffectCategories_Next.png')
+
+        assert(exists('Effects_Categories_Perspective_items.png'))
+        click('Button_EffectCategories_Next.png')
+
+        assert(exists('Effects_Categories_Pixelate_items.png'))
+        click('Button_EffectCategories_Next.png')
+
+        assert(exists('Effects_Categories_Render_items.png'))
+        click('Button_EffectCategories_Next.png')
+
+        assert(exists('Effects_Categories_Stylize_items.png'))
+        click('Button_EffectCategories_Next.png')
+
+        assert(exists('Effects_Categories_Time_items.png'))
+        click('Button_EffectCategories_Next.png')
+
+        assert(exists('Effects_Categories_Transform_items.png'))
+        click('Button_EffectCategories_Next.png')
+
+        assert(exists('Effects_Categories_VideoMerge_items.png'))
+        click('Button_EffectCategories_Next.png')
+        wait(1)
+        click('Button_EffectCategories_Next.png')
+
+        assert(exists('Effects_Categories_HollywoodLooks_items.png'))     
+        
     
-    def test_step4_teardown(self):
-        type("r", KEY_WIN)
-        type("C:\\Users\\nbhushan\\Desktop\\SikuliFramework_PRE2019\\BatFiles\\KillPre_App.bat")
-        type(Key.ENTER)     
+ #   def test_step4_teardown(self):
+  #      type("r", KEY_WIN)
+ #       type("C:\\Users\\nbhushan\\Desktop\\SikuliFramework_PRE2019\\BatFiles\\KillPre_App.bat")
+  #      type(Key.ENTER)     
 
 Settings.ActionLogs = False
 Settings.InfoLogs = False

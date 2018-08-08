@@ -105,29 +105,71 @@ setAutoWaitTimeout(<span class="dig">10</span>)
         <span class="skw">wait</span>(<span class="str">'DropDown_EffectsPanel_AllCategories.png'</span>)
         <span class="skw">click</span>(<span class="str">'DropDown_EffectsPanel_AllCategories.png'</span>)
         <span class="skw">wait</span>(<span class="str">'BaselineIMG_Effects_AllCategories.png'</span>)
-        <span class="skw">click</span>(<span class="str">'NonClickable_EffectsPanel_EffectsText.png'</span>)
-        hover(<span class="str">'Button_EffectsPanel_SearchEffect.png'</span>)
 
-        workbook = xlrd.open_workbook(<span class="str">'C:\\Users\\nbhushan\\Downloads\\SikuliFramework_PRE2019\\TestData\\PRE_Effects.xls'</span>)
-        worksheet = workbook.sheet_by_index(<span class="dig">0</span>)
-        effects_list = worksheet.col_values(<span class="dig">0</span>)
-        <span class="kw">for</span> i <span class="kw">in</span> range (<span class="dig">1</span>, len(effects_list)):
-            effect = worksheet.cell(i, <span class="dig">0</span>).value
-            <span class="skw">wait</span>(<span class="str">'Button_EffectsPanel_SearchEffect_active.png'</span>)
-            <span class="skw">click</span>(<span class="str">'Button_EffectsPanel_SearchEffect_active.png'</span>)
+        <span class="skw">click</span>(<span class="str">'Effects_Category_AdvancedAdjustments.png'</span>)
+        <span class="kw">assert</span>(exists(<span class="str">'Effects_Category_AdvancedAdjustments_items.png'</span>))
+        <span class="skw">click</span>(<span class="str">'Button_EffectCategories_Next.png'</span>)
 
-            <span class="skw">type</span>(effect)
-            <span class="kw">if</span> exists(<span class="str">'BaselineIMG_EffectsPanel_SearchedEffect.png'</span>):
-                <span class="kw">print</span>(effect + <span class="str">" effect appeared."</span>)
-            <span class="kw">else</span>:
-                <span class="kw">print</span>(effect + <span class="str">" effect did not appear!"</span>)
+        <span class="kw">assert</span>(exists(<span class="str">'Effects_Category_BlurSharpen_items.png'</span>))
+        <span class="skw">click</span>(<span class="str">'Button_EffectCategories_Next.png'</span>)
 
-            <span class="skw">click</span>(<span class="str">'Button_EffectsPanel_ClearEffectSearch.png'</span>)
+        <span class="kw">assert</span>(exists(<span class="str">'Effects_Category_Channel_items.png'</span>))
+        <span class="skw">click</span>(<span class="str">'Button_EffectCategories_Next.png'</span>)
 
-    <span class="kw">def</span> test_step4_teardown(self):
-        <span class="skw">type</span>(<span class="str">"r"</span>, KEY_WIN)
-        <span class="skw">type</span>(<span class="str">"C:\\Users\\nbhushan\\Desktop\\SikuliFramework_PRE2019\\BatFiles\\KillPre_App.bat"</span>)
-        <span class="skw">type</span>(Key.ENTER)
+        <span class="kw">assert</span>(exists(<span class="str">'Effects_Categories_ColorCorrection_items.png'</span>))
+        <span class="skw">click</span>(<span class="str">'Button_EffectCategories_Next.png'</span>)
+
+        <span class="kw">assert</span>(exists(<span class="str">'Effects_Categories_Distort_items.png'</span>))
+        <span class="skw">click</span>(<span class="str">'Button_EffectCategories_Next.png'</span>)
+
+        <span class="kw">assert</span>(exists(<span class="str">'Effects_Categories_Generate_items.png'</span>))
+        <span class="skw">click</span>(<span class="str">'Button_EffectCategories_Next.png'</span>)
+
+        <span class="kw">assert</span>(exists(<span class="str">'Effects_Categories_ImageControl_items.png'</span>))
+        <span class="skw">click</span>(<span class="str">'Button_EffectCategories_Next.png'</span>)
+
+        <span class="kw">assert</span>(exists(<span class="str">'Effects_Categories_Keying_items.png'</span>))
+        <span class="skw">click</span>(<span class="str">'Button_EffectCategories_Next.png'</span>)
+
+        <span class="kw">assert</span>(exists(<span class="str">'Effects_Categories_NewBlueArtEffects_items.png'</span>))
+        <span class="skw">click</span>(<span class="str">'Button_EffectCategories_Next.png'</span>)
+
+        <span class="kw">assert</span>(exists(<span class="str">'Effects_Categories_NewBlueCartoonrPlus_items.png'</span>))
+        <span class="skw">click</span>(<span class="str">'Button_EffectCategories_Next.png'</span>)
+
+        <span class="kw">assert</span>(exists(<span class="str">'Effects_Categories_NewBlueFilmLooks_items.png'</span>))
+        <span class="skw">click</span>(<span class="str">'Button_EffectCategories_Next.png'</span>)
+
+        <span class="kw">assert</span>(exists(<span class="str">'Effects_Categories_Perspective_items.png'</span>))
+        <span class="skw">click</span>(<span class="str">'Button_EffectCategories_Next.png'</span>)
+
+        <span class="kw">assert</span>(exists(<span class="str">'Effects_Categories_Pixelate_items.png'</span>))
+        <span class="skw">click</span>(<span class="str">'Button_EffectCategories_Next.png'</span>)
+
+        <span class="kw">assert</span>(exists(<span class="str">'Effects_Categories_Render_items.png'</span>))
+        <span class="skw">click</span>(<span class="str">'Button_EffectCategories_Next.png'</span>)
+
+        <span class="kw">assert</span>(exists(<span class="str">'Effects_Categories_Stylize_items.png'</span>))
+        <span class="skw">click</span>(<span class="str">'Button_EffectCategories_Next.png'</span>)
+
+        <span class="kw">assert</span>(exists(<span class="str">'Effects_Categories_Time_items.png'</span>))
+        <span class="skw">click</span>(<span class="str">'Button_EffectCategories_Next.png'</span>)
+
+        <span class="kw">assert</span>(exists(<span class="str">'Effects_Categories_Transform_items.png'</span>))
+        <span class="skw">click</span>(<span class="str">'Button_EffectCategories_Next.png'</span>)
+
+        <span class="kw">assert</span>(exists(<span class="str">'Effects_Categories_VideoMerge_items.png'</span>))
+        <span class="skw">click</span>(<span class="str">'Button_EffectCategories_Next.png'</span>)
+        <span class="skw">wait</span>(<span class="dig">1</span>)
+        <span class="skw">click</span>(<span class="str">'Button_EffectCategories_Next.png'</span>)
+
+        <span class="kw">assert</span>(exists(<span class="str">'Effects_Categories_HollywoodLooks_items.png'</span>))
+
+
+ <span class="cmt">#   def test_step4_teardown(self):</span>
+  <span class="cmt">#      type("r", KEY_WIN)</span>
+ <span class="cmt">#       type("C:\\Users\\nbhushan\\Desktop\\SikuliFramework_PRE2019\\BatFiles\\KillPre_App.bat")</span>
+  <span class="cmt">#      type(Key.ENTER)     </span>
 
 Settings.ActionLogs = False
 Settings.InfoLogs = False
