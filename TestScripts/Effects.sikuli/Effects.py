@@ -21,7 +21,7 @@ class Test_Effects(unittest.TestCase):
     def setUp(self):       
         utils.openPRE()
                   
-    def test_UI_SearchEffects(self):
+    def test_UI_Effects(self):
         wait(utils.getBaselineImg('Button_GoalScreen_CloseGoalScreen.png'))
         click(utils.getBaselineImg('Button_GoalScreen_CloseGoalScreen.png'))
         wait(utils.getBaselineImg('BaselineIMG_PREMenuBar.png'))

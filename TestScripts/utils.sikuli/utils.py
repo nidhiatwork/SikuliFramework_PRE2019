@@ -2,6 +2,8 @@ from sikuli import *
 import os
 
 AppPath_PRE = "C:\Program Files\Adobe\Adobe Premiere Elements 2019\PremiereElementsEditor.exe"
+Sikuli_Path = "C:\Users\nbhushan\Downloads"
+
 
 userdir = os.path.expanduser('~')
 userdir.replace("\\", "\\\\")
