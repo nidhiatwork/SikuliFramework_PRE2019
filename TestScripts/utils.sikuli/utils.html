@@ -77,8 +77,8 @@ AppPath_PRE = <span class="str">"C:\Program Files\Adobe\Adobe Premiere Elements 
 
 userdir = os.path.expanduser(<span class="str">'~'</span>)
 userdir.replace(<span class="str">"\\"</span>, <span class="str">"\\\\"</span>)
-RootFolder = userdir + <span class="str">"\\Desktop\\SikuliFramework_PRE2019"</span>
 
+RootFolder = userdir + <span class="str">"\\Desktop\\SikuliFramework_PRE2019"</span>
 BaselineFolder = RootFolder + <span class="str">"\\BaselineImages\\"</span>
 OutputFolder = RootFolder + <span class="str">"\\Output\\"</span>
 TestDataFile_path = RootFolder + <span class="str">"\\TestData\\test.mp4"</span>
@@ -95,7 +95,7 @@ TestDataFile_path = RootFolder + <span class="str">"\\TestData\\test.mp4"</span>
 
 <span class="kw">def</span> closePRE():
         <span class="skw">type</span>(<span class="str">"r"</span>, KEY_WIN)
-        <span class="skw">type</span>(RootFolder + <span class="str">"\\BatFiles\\KillPre_App.bat"</span>)
+        <span class="skw">type</span>(RootFolder + <span class="str">"\\BatFiles\\Kill_PRE_App.bat"</span>)
         <span class="skw">type</span>(Key.ENTER)
 
 <span class="kw">def</span> getBaselineImg( str ):
