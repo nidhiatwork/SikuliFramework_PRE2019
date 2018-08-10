@@ -9,14 +9,14 @@ if not utils.RootFolder in sys.path:
 
 import StringIO
 
-fp = file(os.path.join(utils.OutputFolder, "Test_report_SearchEffects.html"), "wb")
+fp = file(os.path.join(utils.OutputFolder, "Test_report_Effects.html"), "wb")
 
 import unittest
 import HTMLTestRunner
 reload(HTMLTestRunner)
 setAutoWaitTimeout(20)
         
-class Test_SearchEffects(unittest.TestCase):
+class Test_Effects(unittest.TestCase):
 
     def setUp(self):       
         utils.openPRE()
@@ -98,11 +98,11 @@ class Test_SearchEffects(unittest.TestCase):
     def tearDown(self):
        utils.closePRE()         
 
-suite = unittest.TestLoader().loadTestsFromTestCase(Test_SearchEffects)
+suite = unittest.TestLoader().loadTestsFromTestCase(Test_Effects)
 
 runner = HTMLTestRunner.HTMLTestRunner(
                 stream=fp,
-                title='Search Effects Test',
-                description='Test report for searching all Effects in PRE.'
+                title='Effects Test',
+                description='Test report for viewing all Effects in PRE.'
                 )
 runner.run(suite)

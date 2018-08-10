@@ -67,7 +67,7 @@
    </head>
 <body>
 <div class="info">
-<h2>SearchEffects.sikuli</h2> <a href="SearchEffects.zip">(Download this script)</a>
+<h2>Effects.sikuli</h2> <a href="Effects.zip">(Download this script)</a>
 </div>
 <pre class="sikuli-code">
 <span class="kw">import</span> utils
@@ -81,14 +81,14 @@ reload(utils)
 
 <span class="kw">import</span> StringIO
 
-fp = file(os.path.join(utils.OutputFolder, <span class="str">"Test_report_SearchEffects.html"</span>), <span class="str">"wb"</span>)
+fp = file(os.path.join(utils.OutputFolder, <span class="str">"Test_report_Effects.html"</span>), <span class="str">"wb"</span>)
 
 <span class="kw">import</span> unittest
 <span class="kw">import</span> HTMLTestRunner
 reload(HTMLTestRunner)
 setAutoWaitTimeout(<span class="dig">20</span>)
 
-<span class="kw">class</span> Test_SearchEffects(unittest.TestCase):
+<span class="kw">class</span> Test_Effects(unittest.TestCase):
 
     <span class="kw">def</span> setUp(self):
         utils.openPRE()
@@ -170,12 +170,12 @@ setAutoWaitTimeout(<span class="dig">20</span>)
     <span class="kw">def</span> tearDown(self):
        utils.closePRE()
 
-suite = unittest.TestLoader().loadTestsFromTestCase(Test_SearchEffects)
+suite = unittest.TestLoader().loadTestsFromTestCase(Test_Effects)
 
 runner = HTMLTestRunner.HTMLTestRunner(
                 stream=fp,
-                title=<span class="str">'Search Effects Test'</span>,
-                description=<span class="str">'Test report for searching all Effects in PRE.'</span>
+                title=<span class="str">'Effects Test'</span>,
+                description=<span class="str">'Test report for viewing all Effects in PRE.'</span>
                 )
 runner.run(suite)
 </pre>
