@@ -21,6 +21,6 @@ for row in range(worksheet.nrows):
         script_run_command = Sikuli_Path + "runsikulix.cmd -r " + area_script_path 
         print "Running area: " + area_name
         os.system(script_run_command)
-        print "Completed execution of: " + area_name + "area."
+        print "Completed execution of: " + area_name + " area."
         time.sleep(5)
     

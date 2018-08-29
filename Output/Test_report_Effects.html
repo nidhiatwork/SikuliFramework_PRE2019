@@ -189,9 +189,9 @@ function showOutput(id, name) {
 
 <div class='heading'>
 <h1>Effects Test</h1>
-<p class='attribute'><strong>Start Time:</strong> 2018-08-10 15:08:58</p>
-<p class='attribute'><strong>Duration:</strong> 0:00:55.941000</p>
-<p class='attribute'><strong>Status:</strong> Pass 1</p>
+<p class='attribute'><strong>Start Time:</strong> 2018-08-20 10:13:51</p>
+<p class='attribute'><strong>Duration:</strong> 0:00:27.325000</p>
+<p class='attribute'><strong>Status:</strong> Error 1</p>
 
 <p class='description'>Test report for viewing all Effects in PRE.</p>
 </div>
@@ -221,26 +221,53 @@ function showOutput(id, name) {
     <td>View</td>
 </tr>
 
-<tr class='passClass'>
+<tr class='errorClass'>
     <td>Test_Effects</td>
     <td>1</td>
+    <td>0</td>
+    <td>0</td>
     <td>1</td>
-    <td>0</td>
-    <td>0</td>
     <td><a href="javascript:showClassDetail('c1',1)">Detail</a></td>
 </tr>
 
-<tr id='pt1.1' class='hiddenRow'>
-    <td class='none'><div class='testcase'>test_UI_Effects</div></td>
-    <td colspan='5' align='center'>pass</td>
+<tr id='ft1.1' class='none'>
+    <td class='errorCase'><div class='testcase'>test_UI_Effects</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft1.1')" >
+        error</a>
+
+    <div id='div_ft1.1' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft1.1').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+ft1.1: Traceback (most recent call last):
+  File "C:\Users\nbhushan\Desktop\SikuliFramework_PRE2019\TestScripts\Effects.sikuli\Effects.py", line 25, in test_UI_Effects
+    wait(utils.getBaselineImg('Button_GoalScreen_CloseGoalScreen.png'))
+  File "C:\Users\nbhushan\AppData\Roaming\Sikulix\Lib\sikuli\Sikuli.py", line 67, in wait
+    return SCREEN.wait(target)
+FindFailed: FindFailed: C:/Users/nbhushan/Desktop/SikuliFramework_PRE2019/BaselineImages/Button_GoalScreen_CloseGoalScreen.png: (108x16) in S(0)[0,0 1920x1080] E:Y, T:3.0
+  Line 2782, in file Region.java
+
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
 </tr>
 
 <tr id='total_row'>
     <td>Total</td>
     <td>1</td>
+    <td>0</td>
+    <td>0</td>
     <td>1</td>
-    <td>0</td>
-    <td>0</td>
     <td>&nbsp;</td>
 </tr>
 </table>
