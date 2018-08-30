@@ -14,7 +14,7 @@ fp = file(os.path.join(utils.OutputFolder, "Test_report_Transitions.html"), "wb"
 import unittest
 import HTMLTestRunner
 reload(HTMLTestRunner)
-setAutoWaitTimeout(20)
+setAutoWaitTimeout(60)
 
 class Test_Transitions(unittest.TestCase):
 
@@ -22,11 +22,11 @@ class Test_Transitions(unittest.TestCase):
         utils.openPRE()
                     
     def test_UI_Transitions(self):
-        wait(utils.getBaselineImg('Button_GoalScreen_CloseGoalScreen.png'))
+        find(utils.getBaselineImg('Button_GoalScreen_CloseGoalScreen.png'))
         click(utils.getBaselineImg('Button_GoalScreen_CloseGoalScreen.png'))
-        wait(utils.getBaselineImg('BaselineIMG_PREMenuBar.png'))
+        find(utils.getBaselineImg('BaselineIMG_PREMenuBar.png'))
         click(utils.getBaselineImg('Button_ExpertRoom.png'))
-        wait(utils.getBaselineImg('BaselineIMG_ExportButtonInExpert.png'))
+        find(utils.getBaselineImg('BaselineIMG_ExportRoomTimeline.png'))
         wait(2)
         
         click(utils.getBaselineImg('Button_RHSPanels_Transitions.png'))

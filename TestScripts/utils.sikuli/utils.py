@@ -15,6 +15,10 @@ TestDataFile_path = RootFolder + "\\TestData\\test.mp4"
 
 def openPRE():
         type("r", KEY_WIN)
+        type(RootFolder + "\\BatFiles\\Kill_PRE_App.bat")
+        type(Key.ENTER)
+        wait(3)
+        type("r", KEY_WIN)
         type(RootFolder + "\\BatFiles\\Clear_PRE_Cache.bat")
         type(Key.ENTER)
         wait(3)
