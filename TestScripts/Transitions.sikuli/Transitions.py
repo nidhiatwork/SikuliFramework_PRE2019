@@ -4,22 +4,13 @@ from utils import *
 import os
 import sys
 
-if not utils.RootFolder in sys.path: 
-    sys.path.append(utils.RootFolder)
-
-import StringIO
-
-fp = file(os.path.join(utils.OutputFolder, "Test_report_Transitions.html"), "wb")
-
 import unittest
-import HTMLTestRunner
-reload(HTMLTestRunner)
 setAutoWaitTimeout(60)
 
-class Test_Transitions(unittest.TestCase):
+class Transitions(unittest.TestCase):
 
     def setUp(self):       
-        utils.openPRE()
+        utils.cleanCache_And_LaunchPRE()
                     
     def test_UI_Transitions(self):
         find(utils.getBaselineImg('Button_GoalScreen_CloseGoalScreen.png'))
@@ -87,11 +78,4 @@ class Test_Transitions(unittest.TestCase):
     def tearDown(self):
         utils.closePRE()              
 
-suite = unittest.TestLoader().loadTestsFromTestCase(Test_Transitions)
 
-runner = HTMLTestRunner.HTMLTestRunner(
-                stream=fp,
-                title='Search Transitions Test',
-                description='Test report for searching all Transitions in PRE.'
-                )
-runner.run(suite)
