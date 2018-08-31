@@ -13,7 +13,7 @@ BaselineFolder = RootFolder + "\\BaselineImages\\"
 OutputFolder = RootFolder + "\\Output\\"
 TestDataFile_path = RootFolder + "\\TestData\\test.mp4"
 
-def openPRE():
+def cleanCache_And_LaunchPRE():
         type("r", KEY_WIN)
         type(RootFolder + "\\BatFiles\\Kill_PRE_App.bat")
         type(Key.ENTER)

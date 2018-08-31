@@ -7,19 +7,13 @@ import sys
 if not utils.RootFolder in sys.path: 
     sys.path.append(utils.RootFolder)
 
-import StringIO
-
-fp = file(os.path.join(utils.OutputFolder, "Test_report_GlassPane_GE.html"), "wb")
-
 import unittest
-import HTMLTestRunner
-reload(HTMLTestRunner)
 setAutoWaitTimeout(60)
 
-class Test_GlassPane_GE(unittest.TestCase):
+class GlassPane_GE(unittest.TestCase):
 
     def setUp(self):       
-        utils.openPRE()
+        utils.cleanCache_And_LaunchPRE()
 
     def test_UI_GlassPane_GE(self):
         find(utils.getBaselineImg('Button_GoalScreen_CloseGoalScreen.png'))
@@ -108,11 +102,3 @@ class Test_GlassPane_GE(unittest.TestCase):
     def tearDown(self):
        utils.closePRE()     
 
-suite = unittest.TestLoader().loadTestsFromTestCase(Test_GlassPane_GE)
-
-runner = HTMLTestRunner.HTMLTestRunner(
-                stream=fp,
-                title='Glass Pane GE Test',
-                description='Test report Glass Pane Guided Edit in PRE.'
-                )
-runner.run(suite)

@@ -3,23 +3,15 @@ reload(utils)
 from utils import *
 import os
 import sys
-
-if not utils.RootFolder in sys.path: 
-    sys.path.append(utils.RootFolder)
-
-import StringIO
-
-fp = file(os.path.join(utils.OutputFolder, "Test_report_Effects.html"), "wb")
+from sikuli import *
 
 import unittest
-import HTMLTestRunner
-reload(HTMLTestRunner)
 setAutoWaitTimeout(60)
         
-class Test_Effects(unittest.TestCase):
+class Effects(unittest.TestCase):
 
     def setUp(self):       
-        utils.openPRE()
+        utils.cleanCache_And_LaunchPRE()
                   
     def test_UI_Effects(self):
         find(utils.getBaselineImg('Button_GoalScreen_CloseGoalScreen.png'))
@@ -99,11 +91,3 @@ class Test_Effects(unittest.TestCase):
     def tearDown(self):
        utils.closePRE()         
 
-suite = unittest.TestLoader().loadTestsFromTestCase(Test_Effects)
-
-runner = HTMLTestRunner.HTMLTestRunner(
-                stream=fp,
-                title='Effects Test',
-                description='Test report for viewing all Effects in PRE.'
-                )
-runner.run(suite)
