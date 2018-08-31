@@ -7,7 +7,7 @@ import sys
 import unittest
 setAutoWaitTimeout(60)
 
-class Transitions(unittest.TestCase):
+class TestTransitions(unittest.TestCase):
 
     def setUp(self):       
         utils.cleanCache_And_LaunchPRE()
@@ -27,40 +27,29 @@ class Transitions(unittest.TestCase):
         click(utils.getBaselineImg('Transition_Category_3DMotion.png'))       
         assert(exists(utils.getBaselineImg('Transition_Category_3DMotion_items.png')))
         click(utils.getBaselineImg('Transition_Category_Next.png'))
-        click(utils.getBaselineImg('NonClickable_TransitionsPanel_EffectsText.png'))
         assert(exists(utils.getBaselineImg('Transition_Category_Dissolve_items.png')))
         click(utils.getBaselineImg('Transition_Category_Next.png'))
-        click(utils.getBaselineImg('NonClickable_TransitionsPanel_EffectsText.png'))        
         assert(exists(utils.getBaselineImg('Transition_Category_Iris_items.png')))
         click(utils.getBaselineImg('Transition_Category_Next.png'))
-        click(utils.getBaselineImg('NonClickable_TransitionsPanel_EffectsText.png'))   
         assert(exists(utils.getBaselineImg('Transition_Category_Map_items.png')))
         click(utils.getBaselineImg('Transition_Category_Next.png'))
-        click(utils.getBaselineImg('NonClickable_TransitionsPanel_EffectsText.png'))
         assert(exists(utils.getBaselineImg('Transition_Category_NewBlue3DExplosion_items.png')))
         click(utils.getBaselineImg('Transition_Category_Next.png'))
-        click(utils.getBaselineImg('NonClickable_TransitionsPanel_EffectsText.png'))
         assert(exists(utils.getBaselineImg('Transition_Category_NewBlue3DTransformations_items.png')))
         click(utils.getBaselineImg('Transition_Category_Next.png'))
-        click(utils.getBaselineImg('NonClickable_TransitionsPanel_EffectsText.png'))
         assert(exists(utils.getBaselineImg('Transition_Category_NewBlue_ArtBlends_items.png')))
         click(utils.getBaselineImg('Transition_Category_Next.png'))
-        click(utils.getBaselineImg('NonClickable_TransitionsPanel_EffectsText.png'))
         assert(exists(utils.getBaselineImg('Transition_Category_NewBlue_MotionBlends_items.png')))
         click(utils.getBaselineImg('Transition_Category_Next.png'))
-        click(utils.getBaselineImg('NonClickable_TransitionsPanel_EffectsText.png'))
         assert(exists(utils.getBaselineImg('Transition_Category_PagePeel_items.png')))
                 
         click(utils.getBaselineImg('Transition_Category_Next.png'))
-        click(utils.getBaselineImg('NonClickable_TransitionsPanel_EffectsText.png'))
         assert(exists(utils.getBaselineImg('Transition_Category_PictureWipes_items.png')))
                     
         click(utils.getBaselineImg('Transition_Category_Next.png'))
-        click(utils.getBaselineImg('NonClickable_TransitionsPanel_EffectsText.png'))
         assert(exists(utils.getBaselineImg('Transition_Category_Slide_items.png')))
                         
         click(utils.getBaselineImg('Transition_Category_Next.png'))
-        click(utils.getBaselineImg('NonClickable_TransitionsPanel_EffectsText.png'))
         assert(exists(utils.getBaselineImg('Transition_Category_SpecialEffects_items.png')))
         
         click(utils.getBaselineImg('Transition_Category_Next.png'))
@@ -68,14 +57,10 @@ class Transitions(unittest.TestCase):
         assert(exists(utils.getBaselineImg('Transition_Category_Stretch_items.png')))
         
         click(utils.getBaselineImg('Transition_Category_Next.png'))
-        click(utils.getBaselineImg('NonClickable_TransitionsPanel_EffectsText.png'))   
         assert(exists(utils.getBaselineImg('Transition_Category_Wipe_items.png')))
                     
         click(utils.getBaselineImg('Transition_Category_Next.png'))
-        click(utils.getBaselineImg('NonClickable_TransitionsPanel_EffectsText.png'))
         assert(exists(utils.getBaselineImg('Transition_Category_Zoom_items.png')))
                                                                                                                                                         
     def tearDown(self):
-        utils.closePRE()              
-
-
+        utils.closePRE()

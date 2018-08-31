@@ -4,6 +4,9 @@ reload(HTMLTestRunner)
 import unittest
 import os,sys
 import xlrd
+import datetime
+
+now = datetime.datetime.now()
 
 RootFolder = "C:\\Users\\nbhushan\\Desktop\\SikuliFramework_PRE2019"
 
@@ -31,12 +34,13 @@ suite = unittest.TestSuite()
 
 for testcase in testcase_list:
     if testcase == "Effects":
-        suite.addTest(Effects("test_UI_Effects"))
+        suite.addTest(TestEffects("test_UI_Effects"))
     elif testcase == "Transitions":
-        suite.addTest(Transitions("test_UI_Transitions"))
+        suite.addTest(TestTransitions("test_UI_Transitions"))
     elif testcase == "GlassPane_GE":
-        suite.addTest(GlassPane_GE("test_UI_GlassPane_GE"))
+        suite.addTest(TestGlassPane_GE("test_UI_GlassPane_GE"))
 
-outfile = file("C:\\Users\\nbhushan\\Desktop\\SikuliFramework_PRE2019\\Output\\TestReport.html", "wb")
+outputfilename = RootFolder + "\\Output\\TestReport_" + str(now.day) + str(now.month) + str(now.year) + "_" + str(now.hour) + str(now.minute) + str(now.second) + ".html"
+outfile = file(outputfilename, "wb")
 runner = HTMLTestRunner.HTMLTestRunner(stream=outfile, title='PRE UI Tests Execution Report', description='This is test report for test execution of UI tests for Premiere Elements application.' )
 runner.run(suite)

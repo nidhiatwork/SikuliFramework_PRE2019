@@ -8,7 +8,7 @@ from sikuli import *
 import unittest
 setAutoWaitTimeout(60)
         
-class Effects(unittest.TestCase):
+class TestEffects(unittest.TestCase):
 
     def setUp(self):       
         utils.cleanCache_And_LaunchPRE()
