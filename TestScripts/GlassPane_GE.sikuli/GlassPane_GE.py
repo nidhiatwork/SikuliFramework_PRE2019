@@ -10,7 +10,7 @@ if not utils.RootFolder in sys.path:
 import unittest
 setAutoWaitTimeout(60)
 
-class GlassPane_GE(unittest.TestCase):
+class TestGlassPane_GE(unittest.TestCase):
 
     def setUp(self):       
         utils.cleanCache_And_LaunchPRE()
