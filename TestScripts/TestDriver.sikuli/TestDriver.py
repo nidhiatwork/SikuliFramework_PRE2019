@@ -43,4 +43,5 @@ for testcase in testcase_list:
 outputfilename = RootFolder + "\\Output\\TestReport_" + str(now.day) + str(now.month) + str(now.year) + "_" + str(now.hour) + str(now.minute) + str(now.second) + ".html"
 outfile = file(outputfilename, "wb")
 runner = HTMLTestRunner.HTMLTestRunner(stream=outfile, title='PRE UI Tests Execution Report', description='This is test report for test execution of UI tests for Premiere Elements application.' )
+print "~~~~~~~~Starting Test case execution~~~~~~~~"
 runner.run(suite)
