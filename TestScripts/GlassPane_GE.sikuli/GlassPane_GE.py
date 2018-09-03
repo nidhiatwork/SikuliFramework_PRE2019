@@ -3,10 +3,6 @@ reload(utils)
 from utils import *
 import os
 import sys
-
-if not utils.RootFolder in sys.path: 
-    sys.path.append(utils.RootFolder)
-
 import unittest
 setAutoWaitTimeout(60)
 

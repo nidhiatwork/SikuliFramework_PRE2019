@@ -5,7 +5,6 @@ import os
 import sys
 
 import unittest
-setAutoWaitTimeout(60)
 
 class TestTransitions(unittest.TestCase):
 
@@ -52,7 +51,6 @@ class TestTransitions(unittest.TestCase):
         utils.assertElementExists(utils.getBaselineImg('Transition_Category_SpecialEffects_items.png'))
         
         utils.clickElement(utils.getBaselineImg('Transition_Category_Next.png'))
-        utils.clickElement(utils.getBaselineImg('NonClickable_TransitionsPanel_EffectsText.png'))              
         utils.assertElementExists(utils.getBaselineImg('Transition_Category_Stretch_items.png'))
         
         utils.clickElement(utils.getBaselineImg('Transition_Category_Next.png'))
