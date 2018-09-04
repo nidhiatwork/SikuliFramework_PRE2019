@@ -33,7 +33,7 @@ class TestGlassPane_GE(unittest.TestCase):
         utils.clickElement(utils.getBaselineImg('Dropdown_AddMedia_FilesAndFolders.png'))
         utils.findElement(utils.getBaselineImg('TextBox_ImportMediaPath.png'))               
         utils.clickElement(utils.getBaselineImg('TextBox_ImportMediaPath.png')) 
-        type(utils.TestDataFile_path)
+        type(Constants.TestDataFile_path)
         type(Key.ENTER)
         utils.findElement(utils.getBaselineImg('GlassPane_Step4_ProjectAssets.png'))       
         dragDrop(utils.getBaselineImg('GlassPane_GE_MediaFile_Track1.png'), utils.getBaselineImg('VideoTrack1.png'))
