@@ -1,3 +1,5 @@
 .vscode/launch.json
-*py.class
+TestScripts/*.class
 TestScripts/try.py
+Output/*.html
+Output/Screenshots

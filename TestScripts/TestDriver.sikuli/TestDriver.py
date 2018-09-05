@@ -23,21 +23,19 @@ worksheet = workbook.sheet_by_index(0)
 
 testcase_list = []
 for row in range(worksheet.nrows):
-    area_flag = worksheet.cell(row, 3).value
+    area_flag = worksheet.cell(row, 4).value
     if area_flag == 1:
-        testcase_list.append(worksheet.cell(row, 1).value)
+        testcase_list.append((str(worksheet.cell(row, 1).value)) + ',' + (str(worksheet.cell(row, 2).value)))
 
 suite = unittest.TestSuite()
 
 for testcase in testcase_list:
-    if testcase == "Effects":
-        suite.addTest(TestEffects("test_UI_Effects"))
-    elif testcase == "Transitions":
-        suite.addTest(TestTransitions("test_UI_Transitions"))
-    elif testcase == "GlassPane_GE":
-        suite.addTest(TestGlassPane_GE("test_UI_GlassPane_GE"))
-
+    testCase = testcase.split(",")
+    className = testCase[0]
+    functionName = testCase[1]
+    suite.addTest(eval(className)(functionName))
+    
 outputfilename = Constants.RootFolder + "\\Output\\TestReport_" + str(now.day) + str(now.month) + str(now.year) + "_" + str(now.hour) + str(now.minute) + str(now.second) + ".html"
 outfile = file(outputfilename, "wb")
-runner = HTMLTestRunner.HTMLTestRunner(stream=outfile, title='PRE UI Tests Execution Report', description='This is test report for test execution of UI tests for Premiere Elements application.' )
+runner = HTMLTestRunner.HTMLTestRunner(stream=outfile, title='PRE UI Tests Execution Report', verbosity=3, dirTestScreenshots = Constants.ScreenshotsFolder, description='This is test report for test execution of UI tests for Premiere Elements application.' )
 runner.run(suite)
