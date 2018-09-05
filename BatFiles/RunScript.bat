@@ -1,0 +1,1 @@
+schtasks /run /tn runPRE_SikuliTests
