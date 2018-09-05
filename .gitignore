@@ -1,3 +1,4 @@
 .vscode/launch.json
 *py.class
 TestScripts/try.py
+Output/*.html
