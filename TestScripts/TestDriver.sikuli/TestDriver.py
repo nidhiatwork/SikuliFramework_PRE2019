@@ -18,7 +18,7 @@ from  Effects import *
 from  Transitions import *
 from  GlassPane_GE import *
 
-workbook = xlrd.open_workbook(Constants.RootFolder+"\\TestData\\" + "PRE_Test_Execution_Data.xls")
+workbook = xlrd.open_workbook(Constants.TestExecution_DataFile)
 worksheet = workbook.sheet_by_index(0)
 
 testcase_list = []
