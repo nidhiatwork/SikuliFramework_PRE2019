@@ -28,14 +28,6 @@ if len(sys.argv)>1 and str(sys.argv[1]) == "ExecutionviaJenkins":
         testcase_arg = f.readlines()
         testcase_arg = [x.strip() for x in testcase_arg]
     testcase_list = testcase_arg[0].split(",")
-    print "Test execution started for below test classes: "
-    
-    for testcase in testcase_list:
-        testCase = testcase.split(".")
-        className = testCase[0]
-        functionName = testCase[1]
-        print className + "." + functionName
-        suite.addTest(eval(className)(functionName))
 
 else:
     print "Test areas have been passed as parameter through PRE_Test_Execution_Data excel file to TestDriver.sikuli script."
@@ -48,14 +40,14 @@ else:
         if area_flag == 1:
             testcase_list.append((str(worksheet.cell(row, 1).value)) + '.' + (str(worksheet.cell(row, 2).value)))
 
-    print "Test execution started for below test classes: "
+print "Test execution started for below test classes: "
 
-    for testcase in testcase_list:
-        testCase = testcase.split(".")
-        className = testCase[0]
-        functionName = testCase[1]
-        suite.addTest(eval(className)(functionName))
-        print className + "." + functionName
+for testcase in testcase_list:
+    testCase = testcase.split(".")
+    className = testCase[0]
+    functionName = testCase[1]
+    print className + "." + functionName
+    suite.addTest(eval(className)(functionName))
 
 now = datetime.datetime.now()    
 outputfilename = Constants.RootFolder + "\\Output\\TestReport_" + str(now.day) + str(now.month) + str(now.year) + "_" + str(now.hour) + str(now.minute) + str(now.second) + ".html"
