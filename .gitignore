@@ -3,3 +3,4 @@ TestScripts/*.class
 TestScripts/try.py
 Output/*.html
 Output/Screenshots
+BatFiles/TestAreas.txt

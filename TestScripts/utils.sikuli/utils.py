@@ -1,7 +1,10 @@
 from sikuli import *
 import os, sys
 import traceback
-import Constants
+from TestScripts import Constants as Constants
+reload(Constants)
+import BaselineImages
+reload(BaselineImages)
 
 def cleanCache_And_LaunchPRE():
         print "\n~~~~~~~~Cleaning cache files and launching PRE application~~~~~~~~"
