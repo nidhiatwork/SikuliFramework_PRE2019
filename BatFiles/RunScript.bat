@@ -1,1 +1,1 @@
-schtasks /run /tn runPRE_SikuliTests
+schtasks /run /tn runPRE_SikuliTests %TestArea%
