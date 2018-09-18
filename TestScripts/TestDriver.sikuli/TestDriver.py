@@ -20,18 +20,22 @@ from GlassPane_GE import *
 
 suite = unittest.TestSuite()
 
-if len(sys.argv)>1:
-    print "Test areas have been passed as parameter through command line to TestDriver.sikuli script."
-    testcase_arg = sys.argv[1]
-    testcase_list = testcase_arg.split(",")
+if len(sys.argv)>1 and str(sys.argv[1]) == "ExecutionviaJenkins":
+    print "Test areas have been passed as parameter through Jenkins to TestDriver.sikuli script."
+    os.chdir(Constants.RootFolder + "\\BatFiles")
+    TestAreas_file = Constants.RootFolder + "\\BatFiles\\TestAreas.txt"
+    with open(TestAreas_file) as f:
+        testcase_arg = f.readlines()
+        testcase_arg = [x.strip() for x in testcase_arg]
+    testcase_list = testcase_arg[0].split(",")
     print "Test execution started for below test classes: "
     
     for testcase in testcase_list:
         testCase = testcase.split(".")
         className = testCase[0]
         functionName = testCase[1]
-        suite.addTest(eval(className)(functionName))
         print className + "." + functionName
+        suite.addTest(eval(className)(functionName))
 
 else:
     print "Test areas have been passed as parameter through PRE_Test_Execution_Data excel file to TestDriver.sikuli script."
