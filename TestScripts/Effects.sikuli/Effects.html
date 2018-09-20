@@ -75,109 +75,111 @@ reload(utils)
 <span class="kw">from</span> utils <span class="kw">import</span> *
 <span class="kw">import</span> os
 <span class="kw">import</span> sys
-
-<span class="kw">if</span> <span class="kw">not</span> utils.RootFolder <span class="kw">in</span> sys.path:
-    sys.path.append(utils.RootFolder)
-
-<span class="kw">import</span> StringIO
-
-fp = file(os.path.join(utils.OutputFolder, <span class="str">"Test_report_Effects.html"</span>), <span class="str">"wb"</span>)
+<span class="kw">from</span> sikuli <span class="kw">import</span> *
 
 <span class="kw">import</span> unittest
-<span class="kw">import</span> HTMLTestRunner
-reload(HTMLTestRunner)
-setAutoWaitTimeout(<span class="dig">20</span>)
 
-<span class="kw">class</span> Test_Effects(unittest.TestCase):
+<span class="kw">class</span> TestEffects(unittest.TestCase):
 
     <span class="kw">def</span> setUp(self):
-        utils.openPRE()
+        utils.cleanCache_And_LaunchPRE()
 
     <span class="kw">def</span> test_UI_Effects(self):
-        <span class="skw">wait</span>(utils.getBaselineImg(<span class="str">'Button_GoalScreen_CloseGoalScreen.png'</span>))
-        <span class="skw">click</span>(utils.getBaselineImg(<span class="str">'Button_GoalScreen_CloseGoalScreen.png'</span>))
-        <span class="skw">wait</span>(utils.getBaselineImg(<span class="str">'BaselineIMG_PREMenuBar.png'</span>))
+        utils.clickElement(utils.getBaselineImg(<span class="str">'Button_GoalScreen_CloseGoalScreen.png'</span>))
+        utils.findElement(utils.getBaselineImg(<span class="str">'BaselineIMG_PREMenuBar.png'</span>))
 
-        <span class="skw">click</span>(utils.getBaselineImg(<span class="str">'Button_ExpertRoom.png'</span>))
-        <span class="skw">wait</span>(utils.getBaselineImg(<span class="str">'BaselineIMG_ExportButtonInExpert.png'</span>))
+        utils.clickElement(utils.getBaselineImg(<span class="str">'Button_ExpertRoom.png'</span>))
+        utils.findElement(utils.getBaselineImg(<span class="str">'BaselineIMG_ExportRoomTimeline.png'</span>))
         <span class="skw">wait</span>(<span class="dig">2</span>)
-        <span class="skw">wait</span>(utils.getBaselineImg(<span class="str">'Button_RHSPanels_Effects.png'</span>))
+        utils.findElement(utils.getBaselineImg(<span class="str">'Button_RHSPanels_Effects.png'</span>))
 
-        <span class="skw">click</span>(utils.getBaselineImg(<span class="str">'Button_RHSPanels_Effects.png'</span>))
-        <span class="skw">wait</span>(utils.getBaselineImg(<span class="str">'DropDown_EffectsPanel_AllCategories.png'</span>))
-        <span class="skw">click</span>(utils.getBaselineImg(<span class="str">'DropDown_EffectsPanel_AllCategories.png'</span>))
-        <span class="skw">wait</span>(utils.getBaselineImg(<span class="str">'BaselineIMG_Effects_AllCategories.png'</span>))
+        utils.clickElement(utils.getBaselineImg(<span class="str">'Button_RHSPanels_Effects.png'</span>))
+        utils.findElement(utils.getBaselineImg(<span class="str">'DropDown_EffectsPanel_AllCategories.png'</span>))
+        utils.clickElement(utils.getBaselineImg(<span class="str">'DropDown_EffectsPanel_AllCategories.png'</span>))
+        utils.findElement(utils.getBaselineImg(<span class="str">'BaselineIMG_Effects_AllCategories.png'</span>))
 
-        <span class="skw">click</span>(utils.getBaselineImg(<span class="str">'Effects_Category_AdvancedAdjustments.png'</span>))
-        <span class="kw">assert</span>(exists(utils.getBaselineImg(<span class="str">'Effects_Category_AdvancedAdjustments_items.png'</span>)))
-        <span class="skw">click</span>(utils.getBaselineImg(<span class="str">'Button_EffectCategories_Next.png'</span>))
+        utils.clickElement(utils.getBaselineImg(<span class="str">'Effects_Category_AdvancedAdjustments.png'</span>))
+        utils.assertElementExists(utils.getBaselineImg(<span class="str">'Effects_Category_AdvancedAdjustments_items.png'</span>))
+        utils.clickElement(utils.getBaselineImg(<span class="str">'Button_EffectCategories_Next.png'</span>))
+        hover(<img src="NonClickable_EffectsPanelText.png" />)
 
-        <span class="kw">assert</span>(exists(utils.getBaselineImg(<span class="str">'Effects_Category_BlurSharpen_items.png'</span>)))
-        <span class="skw">click</span>(utils.getBaselineImg(<span class="str">'Button_EffectCategories_Next.png'</span>))
 
-        <span class="kw">assert</span>(exists(utils.getBaselineImg(<span class="str">'Effects_Category_Channel_items.png'</span>)))
-        <span class="skw">click</span>(utils.getBaselineImg(<span class="str">'Button_EffectCategories_Next.png'</span>))
+        utils.assertElementExists(utils.getBaselineImg(<span class="str">'Effects_Category_BlurSharpen_items.png'</span>))
+        utils.clickElement(utils.getBaselineImg(<span class="str">'Button_EffectCategories_Next.png'</span>))
+        hover(<img src="NonClickable_EffectsPanelText.png" />)
 
-        <span class="kw">assert</span>(exists(utils.getBaselineImg(<span class="str">'Effects_Categories_ColorCorrection_items.png'</span>)))
-        <span class="skw">click</span>(utils.getBaselineImg(<span class="str">'Button_EffectCategories_Next.png'</span>))
+        utils.assertElementExists(utils.getBaselineImg(<span class="str">'Effects_Category_Channel_items.png'</span>))
+        utils.clickElement(utils.getBaselineImg(<span class="str">'Button_EffectCategories_Next.png'</span>))
+        hover(<img src="NonClickable_EffectsPanelText.png" />)
 
-        <span class="kw">assert</span>(exists(utils.getBaselineImg(<span class="str">'Effects_Categories_Distort_items.png'</span>)))
-        <span class="skw">click</span>(utils.getBaselineImg(<span class="str">'Button_EffectCategories_Next.png'</span>))
+        utils.assertElementExists(utils.getBaselineImg(<span class="str">'Effects_Categories_ColorCorrection_items.png'</span>))
+        utils.clickElement(utils.getBaselineImg(<span class="str">'Button_EffectCategories_Next.png'</span>))
+        hover(<img src="NonClickable_EffectsPanelText.png" />)
 
-        <span class="kw">assert</span>(exists(utils.getBaselineImg(<span class="str">'Effects_Categories_Generate_items.png'</span>)))
-        <span class="skw">click</span>(utils.getBaselineImg(<span class="str">'Button_EffectCategories_Next.png'</span>))
+        utils.assertElementExists(utils.getBaselineImg(<span class="str">'Effects_Categories_Distort_items.png'</span>))
+        utils.clickElement(utils.getBaselineImg(<span class="str">'Button_EffectCategories_Next.png'</span>))
+        hover(<img src="NonClickable_EffectsPanelText.png" />)
 
-        <span class="kw">assert</span>(exists(utils.getBaselineImg(<span class="str">'Effects_Categories_ImageControl_items.png'</span>)))
-        <span class="skw">click</span>(utils.getBaselineImg(<span class="str">'Button_EffectCategories_Next.png'</span>))
+        utils.assertElementExists(utils.getBaselineImg(<span class="str">'Effects_Categories_Generate_items.png'</span>))
+        utils.clickElement(utils.getBaselineImg(<span class="str">'Button_EffectCategories_Next.png'</span>))
+        hover(<img src="NonClickable_EffectsPanelText.png" />)
 
-        <span class="kw">assert</span>(exists(utils.getBaselineImg(<span class="str">'Effects_Categories_Keying_items.png'</span>)))
-        <span class="skw">click</span>(utils.getBaselineImg(<span class="str">'Button_EffectCategories_Next.png'</span>))
+        utils.assertElementExists(utils.getBaselineImg(<span class="str">'Effects_Categories_ImageControl_items.png'</span>))
+        utils.clickElement(utils.getBaselineImg(<span class="str">'Button_EffectCategories_Next.png'</span>))
+        hover(<img src="NonClickable_EffectsPanelText.png" />)
 
-        <span class="kw">assert</span>(exists(utils.getBaselineImg(<span class="str">'Effects_Categories_NewBlueArtEffects_items.png'</span>)))
-        <span class="skw">click</span>(utils.getBaselineImg(<span class="str">'Button_EffectCategories_Next.png'</span>))
+        utils.assertElementExists(utils.getBaselineImg(<span class="str">'Effects_Categories_Keying_items.png'</span>))
+        utils.clickElement(utils.getBaselineImg(<span class="str">'Button_EffectCategories_Next.png'</span>))
+        hover(<img src="NonClickable_EffectsPanelText.png" />)
 
-        <span class="kw">assert</span>(exists(utils.getBaselineImg(<span class="str">'Effects_Categories_NewBlueCartoonrPlus_items.png'</span>)))
-        <span class="skw">click</span>(utils.getBaselineImg(<span class="str">'Button_EffectCategories_Next.png'</span>))
+        utils.assertElementExists(utils.getBaselineImg(<span class="str">'Effects_Categories_NewBlueArtEffects_items.png'</span>))
+        utils.clickElement(utils.getBaselineImg(<span class="str">'Button_EffectCategories_Next.png'</span>))
+        hover(<img src="NonClickable_EffectsPanelText.png" />)
 
-        <span class="kw">assert</span>(exists(utils.getBaselineImg(<span class="str">'Effects_Categories_NewBlueFilmLooks_items.png'</span>)))
-        <span class="skw">click</span>(utils.getBaselineImg(<span class="str">'Button_EffectCategories_Next.png'</span>))
+        utils.assertElementExists(utils.getBaselineImg(<span class="str">'Effects_Categories_NewBlueCartoonrPlus_items.png'</span>))
+        utils.clickElement(utils.getBaselineImg(<span class="str">'Button_EffectCategories_Next.png'</span>))
+        hover(<img src="NonClickable_EffectsPanelText.png" />)
 
-        <span class="kw">assert</span>(exists(utils.getBaselineImg(<span class="str">'Effects_Categories_Perspective_items.png'</span>)))
-        <span class="skw">click</span>(utils.getBaselineImg(<span class="str">'Button_EffectCategories_Next.png'</span>))
+        utils.assertElementExists(utils.getBaselineImg(<span class="str">'Effects_Categories_NewBlueFilmLooks_items.png'</span>))
+        utils.clickElement(utils.getBaselineImg(<span class="str">'Button_EffectCategories_Next.png'</span>))
+        hover(<img src="NonClickable_EffectsPanelText.png" />)
 
-        <span class="kw">assert</span>(exists(utils.getBaselineImg(<span class="str">'Effects_Categories_Pixelate_items.png'</span>)))
-        <span class="skw">click</span>(utils.getBaselineImg(<span class="str">'Button_EffectCategories_Next.png'</span>))
+        utils.assertElementExists(utils.getBaselineImg(<span class="str">'Effects_Categories_Perspective_items.png'</span>))
+        utils.clickElement(utils.getBaselineImg(<span class="str">'Button_EffectCategories_Next.png'</span>))
+        hover(<img src="NonClickable_EffectsPanelText.png" />)
 
-        <span class="kw">assert</span>(exists(utils.getBaselineImg(<span class="str">'Effects_Categories_Render_items.png'</span>)))
-        <span class="skw">click</span>(utils.getBaselineImg(<span class="str">'Button_EffectCategories_Next.png'</span>))
+        utils.assertElementExists(utils.getBaselineImg(<span class="str">'Effects_Categories_Pixelate_items.png'</span>))
+        utils.clickElement(utils.getBaselineImg(<span class="str">'Button_EffectCategories_Next.png'</span>))
+        hover(<img src="NonClickable_EffectsPanelText.png" />)
 
-        <span class="kw">assert</span>(exists(utils.getBaselineImg(<span class="str">'Effects_Categories_Stylize_items.png'</span>)))
-        <span class="skw">click</span>(utils.getBaselineImg(<span class="str">'Button_EffectCategories_Next.png'</span>))
+        utils.assertElementExists(utils.getBaselineImg(<span class="str">'Effects_Categories_Render_items.png'</span>))
+        utils.clickElement(utils.getBaselineImg(<span class="str">'Button_EffectCategories_Next.png'</span>))
+        hover(<img src="NonClickable_EffectsPanelText.png" />)
 
-        <span class="kw">assert</span>(exists(utils.getBaselineImg(<span class="str">'Effects_Categories_Time_items.png'</span>)))
-        <span class="skw">click</span>(utils.getBaselineImg(<span class="str">'Button_EffectCategories_Next.png'</span>))
+        utils.assertElementExists(utils.getBaselineImg(<span class="str">'Effects_Categories_Stylize_items.png'</span>))
+        utils.clickElement(utils.getBaselineImg(<span class="str">'Button_EffectCategories_Next.png'</span>))
+        hover(<img src="NonClickable_EffectsPanelText.png" />)
 
-        <span class="kw">assert</span>(exists(utils.getBaselineImg(<span class="str">'Effects_Categories_Transform_items.png'</span>)))
-        <span class="skw">click</span>(utils.getBaselineImg(<span class="str">'Button_EffectCategories_Next.png'</span>))
+        utils.assertElementExists(utils.getBaselineImg(<span class="str">'Effects_Categories_Time_items.png'</span>))
+        utils.clickElement(utils.getBaselineImg(<span class="str">'Button_EffectCategories_Next.png'</span>))
+        hover(<img src="NonClickable_EffectsPanelText.png" />)
 
-        <span class="kw">assert</span>(exists(utils.getBaselineImg(<span class="str">'Effects_Categories_VideoMerge_items.png'</span>)))
-        <span class="skw">click</span>(utils.getBaselineImg(<span class="str">'Button_EffectCategories_Next.png'</span>))
-        <span class="skw">wait</span>(<span class="dig">1</span>)
-        <span class="skw">click</span>(utils.getBaselineImg(<span class="str">'Button_EffectCategories_Next.png'</span>))
+        utils.assertElementExists(utils.getBaselineImg(<span class="str">'Effects_Categories_Transform_items.png'</span>))
+        utils.clickElement(utils.getBaselineImg(<span class="str">'Button_EffectCategories_Next.png'</span>))
+        hover(<img src="NonClickable_EffectsPanelText.png" />)
 
-        <span class="kw">assert</span>(exists(utils.getBaselineImg(<span class="str">'Effects_Categories_HollywoodLooks_items.png'</span>)))
+        utils.assertElementExists(utils.getBaselineImg(<span class="str">'Effects_Categories_VideoMerge_items.png'</span>))
+        utils.clickElement(utils.getBaselineImg(<span class="str">'Button_EffectCategories_Next.png'</span>))
+        hover(<img src="NonClickable_EffectsPanelText.png" />)
+
+        <span class="skw">wait</span>(<span class="dig">2</span>)
+        utils.clickElement(utils.getBaselineImg(<span class="str">'Button_EffectCategories_Next.png'</span>))
+        hover(<img src="NonClickable_EffectsPanelText.png" />)
+
+        utils.assertElementExists(utils.getBaselineImg(<span class="str">'Effects_Categories_HollywoodLooks_items.png'</span>))
 
     <span class="kw">def</span> tearDown(self):
        utils.closePRE()
-
-suite = unittest.TestLoader().loadTestsFromTestCase(Test_Effects)
-
-runner = HTMLTestRunner.HTMLTestRunner(
-                stream=fp,
-                title=<span class="str">'Effects Test'</span>,
-                description=<span class="str">'Test report for viewing all Effects in PRE.'</span>
-                )
-runner.run(suite)
 </pre>
 </body>
 </html>

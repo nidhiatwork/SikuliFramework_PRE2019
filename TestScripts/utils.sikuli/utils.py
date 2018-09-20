@@ -54,6 +54,16 @@ def clickElement( element ):
                 print "Unable to click element: " + element_name + "\nBelow are details:\n" + str(sys.exc_info()[0]) + " -- line no. " + str(stack[0][1])
                 raise
 
+def hoverElement( element ):
+        element_name = getElementNameFromFullPath(element)
+        print "Hovering on element: " + element_name
+        try:
+                hover(element)
+        except:
+                stack = traceback.extract_stack(limit = 2)
+                print "Unable to hover on element: " + element_name + "\nBelow are details:\n" + str(sys.exc_info()[0]) + " -- line no. " + str(stack[0][1])
+                raise
+
 def assertElementExists( element ):
         element_name = getElementNameFromFullPath(element)
         print "Asserting whether element exists: " + element_name
