@@ -8,10 +8,9 @@ reload(BaselineImages)
 
 def cleanCache_And_LaunchPRE():
         print "\n~~~~~~~~Cleaning cache files and launching PRE application~~~~~~~~"
-        type("r", KEY_WIN)
-        type(Constants.RootFolder + "\\BatFiles\\PRE_Clean_Launch.bat")
-        type(Key.ENTER) 
-        
+        os.system(Constants.RootFolder + "\\BatFiles\\PRE_Clean_Launch.bat")       
+        pre = 'C:\Program Files\Adobe\Adobe Premiere Elements 2019\PremiereElementsEditor.exe'
+        openApp(pre) 
         setAutoWaitTimeout(60)
 
         try:
@@ -21,14 +20,11 @@ def cleanCache_And_LaunchPRE():
                 closePRE()
                 sys.exit(0)
 
-        setAutoWaitTimeout(15)
-       
+        setAutoWaitTimeout(15)       
 
 def closePRE():
         print "~~~~~~~~Closing any open instance of PRE application~~~~~~~~"
-        type("r", KEY_WIN)
-        type(Constants.RootFolder + "\\BatFiles\\Kill_PRE_App.bat")
-        type(Key.ENTER)
+        os.system(Constants.RootFolder + "\\BatFiles\\Kill_PRE_App.bat")       
         wait(3)
 
 def getBaselineImg( img_name ):

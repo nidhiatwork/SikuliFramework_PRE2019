@@ -11,7 +11,4 @@ del /f "C:\Users\%username%\AppData\Roaming\Adobe\Premiere Elements\17.0\Adobe P
 rd /s /q "C:\Users\%username%\AppData\Roaming\Adobe\Common\Media Cache"
 rd /s /q "C:\Users\%username%\AppData\Roaming\Adobe\Common\Media Cache Files"
 rd /s /q "C:\Users\%username%\AppData\Roaming\Adobe\Premiere Elements\17.0\Layouts"
-
-"C:\Program Files\Adobe\Adobe Premiere Elements 2019\PremiereElementsEditor.exe"
-
 exit
