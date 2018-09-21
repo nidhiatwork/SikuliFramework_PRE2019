@@ -9,68 +9,89 @@ reload(BaselineImages)
 def cleanCache_And_LaunchPRE():
         print "\n~~~~~~~~Cleaning cache files and launching PRE application~~~~~~~~"
         os.system(Constants.RootFolder + "\\BatFiles\\PRE_Clean_Launch.bat")       
-        pre = 'C:\Program Files\Adobe\Adobe Premiere Elements 2019\PremiereElementsEditor.exe'
-        openApp(pre) 
+        openApp('C:\Program Files\Adobe\Adobe Premiere Elements 2019\PremiereElementsEditor.exe') 
         setAutoWaitTimeout(60)
 
         try:
-                find(getBaselineImg('Button_GoalScreen_CloseGoalScreen.png'))
+                setBundlePath(Constants.BaselineFolder)
+                find("Button_GoalScreen_CloseGoalScreen.png")
         except:
                 print("Unable to launch PRE application after waiting for 60 seconds. End of execution.")
                 closePRE()
                 sys.exit(0)
 
-        setAutoWaitTimeout(15)       
+        setAutoWaitTimeout(10)      
 
 def closePRE():
         print "~~~~~~~~Closing any open instance of PRE application~~~~~~~~"
         os.system(Constants.RootFolder + "\\BatFiles\\Kill_PRE_App.bat")       
         wait(3)
 
-def getBaselineImg( img_name ):
-        return Constants.BaselineFolder+ img_name
         
 def findElement( element ):       
-        element_name = getElementNameFromFullPath(element)
-        print "Finding element: " + element_name
+        print "Finding element: " + element
         try:
                 find(element)
         except:
                         stack = traceback.extract_stack(limit = 2)
-                        print "Unable to find element: " + element_name + "\nBelow are details:\n" + str(sys.exc_info()[0]) + " -- line no. " + str(stack[0][1])
+                        print "Unable to find element: " + Constants.BaselineFolder + element + "\nBelow are details:\n" + str(sys.exc_info()[0]) + " -- line no. " + str(stack[0][1])
                         raise
 
 def clickElement( element ):
-        element_name = getElementNameFromFullPath(element)
-        print "Clicking on element: " + element_name
+        print "Clicking on element: " + element
         try:
                 click(element)
         except:
                 stack = traceback.extract_stack(limit = 2)
-                print "Unable to click element: " + element_name + "\nBelow are details:\n" + str(sys.exc_info()[0]) + " -- line no. " + str(stack[0][1])
+                print "Unable to click element: " + Constants.BaselineFolder + element + "\nBelow are details:\n" + str(sys.exc_info()[0]) + " -- line no. " + str(stack[0][1])
                 raise
 
 def hoverElement( element ):
-        element_name = getElementNameFromFullPath(element)
-        print "Hovering on element: " + element_name
+        print "Hovering on element: " + element
         try:
                 hover(element)
         except:
                 stack = traceback.extract_stack(limit = 2)
-                print "Unable to hover on element: " + element_name + "\nBelow are details:\n" + str(sys.exc_info()[0]) + " -- line no. " + str(stack[0][1])
+                print "Unable to hover on element: " + Constants.BaselineFolder + element + "\nBelow are details:\n" + str(sys.exc_info()[0]) + " -- line no. " + str(stack[0][1])
                 raise
 
 def assertElementExists( element ):
-        element_name = getElementNameFromFullPath(element)
-        print "Asserting whether element exists: " + element_name
+        print "Asserting whether element exists: " + element
         try:
                 assert(exists(element))
         except AssertionError:
                 stack = traceback.extract_stack(limit = 2)
-                print "Unable to assert image exists: " + element_name + "\nBelow are details:\n" + str(sys.exc_info()[0]) + " -- line no. " + str(stack[0][1])
+                print "Unable to assert image exists: " + Constants.BaselineFolder + element + "\nBelow are details:\n" + str(sys.exc_info()[0]) + " -- line no. " + str(stack[0][1])
                 raise
 
-def getElementNameFromFullPath( image_path ):
-        element_path_list = image_path.split("\\")
-        image_item = element_path_list[len(element_path_list)-1]
-        return image_item
+def typeKeys( data ):
+        print "Typing: " + data
+        try:
+                type(data)
+        except:
+                stack = traceback.extract_stack(limit = 2)
+                print "Unable to type: " + data + "\nBelow are exception details:\n" + str(sys.exc_info()[0]) + " -- line no. " + str(stack[0][1])
+                raise
+
+def dragDropElement(sourceImg, destImg):
+        print "Dragging and dropping: " + sourceImg + " to " + destImg
+        try:
+                dragDrop(sourceImg, destImg)
+        except:
+                stack = traceback.extract_stack(limit = 2)
+                print "Unable to drag and drop: " + Constants.BaselineFolder + sourceImg + "to " + Constants.BaselineFolder + sourceImg + "\nBelow are exception details:\n" + str(sys.exc_info()[0]) + " -- line no. " + str(stack[0][1])
+                raise
+
+def pressAndHoldElement( element, seconds ):       
+        print "Pressing and holding on element: " + element + "for " + str(seconds) + "seconds"
+        try:
+                
+                hoverElement(element)
+                mouseDown(Button.LEFT)
+                mouseMove(element)
+                wait(seconds)
+                mouseUp()
+        except:
+                stack = traceback.extract_stack(limit = 2)
+                print "Unable to press and hold on element: " + Constants.BaselineFolder + element + "\nBelow are exception details:\n" + str(sys.exc_info()[0]) + " -- line no. " + str(stack[0][1])
+                raise

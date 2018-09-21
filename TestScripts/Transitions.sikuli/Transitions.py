@@ -9,82 +9,82 @@ import unittest
 class TestTransitions(unittest.TestCase):
 
     def setUp(self):       
-        utils.cleanCache_And_LaunchPRE()
+        cleanCache_And_LaunchPRE()
                     
     def test_UI_Transitions(self):
-        utils.clickElement(utils.getBaselineImg('Button_GoalScreen_CloseGoalScreen.png'))
-        utils.findElement(utils.getBaselineImg('BaselineIMG_PREMenuBar.png'))
-        utils.clickElement(utils.getBaselineImg('Button_ExpertRoom.png'))
-        utils.findElement(utils.getBaselineImg('BaselineIMG_ExportRoomTimeline.png'))
+        clickElement("Button_GoalScreen_CloseGoalScreen.png")
+        findElement("BaselineIMG_PREMenuBar.png")
+        clickElement("Button_ExpertRoom.png")
+        findElement("BaselineIMG_ExportRoomTimeline.png")
         wait(2)
         
-        utils.clickElement(utils.getBaselineImg('Button_RHSPanels_Transitions.png'))
-        utils.assertElementExists(utils.getBaselineImg('DropDown_TransitionssPanel_AllCategories.png'))
-        utils.clickElement(utils.getBaselineImg('DropDown_TransitionssPanel_AllCategories.png'))
-        utils.assertElementExists(utils.getBaselineImg('BaselineIMG_Transitions_AllCategories.png'))        
-        utils.clickElement(utils.getBaselineImg('Transition_Category_3DMotion.png'))       
-        utils.assertElementExists(utils.getBaselineImg('Transition_Category_3DMotion_items.png'))
-        utils.clickElement(utils.getBaselineImg('Transition_Category_Next.png'))
-        utils.hoverElement(utils.getBaselineImg("NonClickable_TransitionsPanelText.png"))
+        clickElement("Button_RHSPanels_Transitions.png")
+        assertElementExists("DropDown_TransitionssPanel_AllCategories.png")
+        clickElement("DropDown_TransitionssPanel_AllCategories.png")
+        assertElementExists("BaselineIMG_Transitions_AllCategories.png")        
+        clickElement("Transition_Category_3DMotion.png")       
+        assertElementExists("Transition_Category_3DMotion_items.png")
+        clickElement("Transition_Category_Next.png")
+        hoverElement("NonClickable_TransitionsPanelText.png")
         
-        utils.assertElementExists(utils.getBaselineImg('Transition_Category_Dissolve_items.png'))
-        utils.clickElement(utils.getBaselineImg('Transition_Category_Next.png'))
-        utils.hoverElement(utils.getBaselineImg("NonClickable_TransitionsPanelText.png"))
+        assertElementExists("Transition_Category_Dissolve_items.png")
+        clickElement("Transition_Category_Next.png")
+        hoverElement("NonClickable_TransitionsPanelText.png")
         
-        utils.assertElementExists(utils.getBaselineImg('Transition_Category_Iris_items.png'))
-        utils.clickElement(utils.getBaselineImg('Transition_Category_Next.png'))
-        utils.hoverElement(utils.getBaselineImg("NonClickable_TransitionsPanelText.png"))
+        assertElementExists("Transition_Category_Iris_items.png")
+        clickElement("Transition_Category_Next.png")
+        hoverElement("NonClickable_TransitionsPanelText.png")
         
-        utils.assertElementExists(utils.getBaselineImg('Transition_Category_Map_items.png'))
-        utils.clickElement(utils.getBaselineImg('Transition_Category_Next.png'))
-        utils.hoverElement(utils.getBaselineImg("NonClickable_TransitionsPanelText.png"))
+        assertElementExists("Transition_Category_Map_items.png")
+        clickElement("Transition_Category_Next.png")
+        hoverElement("NonClickable_TransitionsPanelText.png")
         
-        utils.assertElementExists(utils.getBaselineImg('Transition_Category_NewBlue3DExplosion_items.png'))
-        utils.clickElement(utils.getBaselineImg('Transition_Category_Next.png'))
-        utils.hoverElement(utils.getBaselineImg("NonClickable_TransitionsPanelText.png"))
+        assertElementExists("Transition_Category_NewBlue3DExplosion_items.png")
+        clickElement("Transition_Category_Next.png")
+        hoverElement("NonClickable_TransitionsPanelText.png")
         
-        utils.assertElementExists(utils.getBaselineImg('Transition_Category_NewBlue3DTransformations_items.png'))
-        utils.clickElement(utils.getBaselineImg('Transition_Category_Next.png'))
-        utils.hoverElement(utils.getBaselineImg("NonClickable_TransitionsPanelText.png"))
+        assertElementExists("Transition_Category_NewBlue3DTransformations_items.png")
+        clickElement("Transition_Category_Next.png")
+        hoverElement("NonClickable_TransitionsPanelText.png")
         
-        utils.assertElementExists(utils.getBaselineImg('Transition_Category_NewBlue_ArtBlends_items.png'))
-        utils.clickElement(utils.getBaselineImg('Transition_Category_Next.png'))
-        utils.hoverElement(utils.getBaselineImg("NonClickable_TransitionsPanelText.png"))
+        assertElementExists("Transition_Category_NewBlue_ArtBlends_items.png")
+        clickElement("Transition_Category_Next.png")
+        hoverElement("NonClickable_TransitionsPanelText.png")
         
-        utils.assertElementExists(utils.getBaselineImg('Transition_Category_NewBlue_MotionBlends_items.png'))
-        utils.clickElement(utils.getBaselineImg('Transition_Category_Next.png'))
-        utils.hoverElement(utils.getBaselineImg("NonClickable_TransitionsPanelText.png"))
+        assertElementExists("Transition_Category_NewBlue_MotionBlends_items.png")
+        clickElement("Transition_Category_Next.png")
+        hoverElement("NonClickable_TransitionsPanelText.png")
         
-        utils.assertElementExists(utils.getBaselineImg('Transition_Category_PagePeel_items.png'))
+        assertElementExists("Transition_Category_PagePeel_items.png")
                 
-        utils.clickElement(utils.getBaselineImg('Transition_Category_Next.png'))
-        utils.hoverElement(utils.getBaselineImg("NonClickable_TransitionsPanelText.png"))
+        clickElement("Transition_Category_Next.png")
+        hoverElement("NonClickable_TransitionsPanelText.png")
         
-        utils.assertElementExists(utils.getBaselineImg('Transition_Category_PictureWipes_items.png'))
+        assertElementExists("Transition_Category_PictureWipes_items.png")
                     
-        utils.clickElement(utils.getBaselineImg('Transition_Category_Next.png'))
-        utils.hoverElement(utils.getBaselineImg("NonClickable_TransitionsPanelText.png"))
+        clickElement("Transition_Category_Next.png")
+        hoverElement("NonClickable_TransitionsPanelText.png")
         
-        utils.assertElementExists(utils.getBaselineImg('Transition_Category_Slide_items.png'))
+        assertElementExists("Transition_Category_Slide_items.png")
                         
-        utils.clickElement(utils.getBaselineImg('Transition_Category_Next.png'))
-        utils.hoverElement(utils.getBaselineImg("NonClickable_TransitionsPanelText.png"))
+        clickElement("Transition_Category_Next.png")
+        hoverElement("NonClickable_TransitionsPanelText.png")
         
-        utils.assertElementExists(utils.getBaselineImg('Transition_Category_SpecialEffects_items.png'))
+        assertElementExists("Transition_Category_SpecialEffects_items.png")
         
-        utils.clickElement(utils.getBaselineImg('Transition_Category_Next.png'))
-        utils.hoverElement(utils.getBaselineImg("NonClickable_TransitionsPanelText.png"))
+        clickElement("Transition_Category_Next.png")
+        hoverElement("NonClickable_TransitionsPanelText.png")
         
-        utils.assertElementExists(utils.getBaselineImg('Transition_Category_Stretch_items.png'))
+        assertElementExists("Transition_Category_Stretch_items.png")
         
-        utils.clickElement(utils.getBaselineImg('Transition_Category_Next.png'))
-        utils.hoverElement(utils.getBaselineImg("NonClickable_TransitionsPanelText.png"))
+        clickElement("Transition_Category_Next.png")
+        hoverElement("NonClickable_TransitionsPanelText.png")
         
-        utils.assertElementExists(utils.getBaselineImg('Transition_Category_Wipe_items.png'))
+        assertElementExists("Transition_Category_Wipe_items.png")
                     
-        utils.clickElement(utils.getBaselineImg('Transition_Category_Next.png'))
-        utils.hoverElement(utils.getBaselineImg("NonClickable_TransitionsPanelText.png"))
-        utils.assertElementExists(utils.getBaselineImg('Transition_Category_Zoom_items.png'))
+        clickElement("Transition_Category_Next.png")
+        hoverElement("NonClickable_TransitionsPanelText.png")
+        assertElementExists("Transition_Category_Zoom_items.png")
                                                                                                                                                         
     def tearDown(self):
-        utils.closePRE()
+        closePRE()
