@@ -4,7 +4,6 @@ from utils import *
 import os
 import sys
 import unittest
-setAutoWaitTimeout(60)
 
 class TestGlassPane_GE(unittest.TestCase):
 
