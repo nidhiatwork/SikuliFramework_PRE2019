@@ -11,7 +11,7 @@ class TestGlassPane_GE(unittest.TestCase):
         cleanCache_And_LaunchPRE()
 
     def test_UI_GlassPane_GE(self):
-        clickElement("Button_GoalScreen_CloseGoalScreen.png")
+        doubleClickElement("Button_GoalScreen_CloseGoalScreen.png")
         findElement("BaselineIMG_PREMenuBar.png")
 
         clickElement("Button_GuidedRoom.png")

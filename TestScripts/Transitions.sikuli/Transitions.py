@@ -12,7 +12,7 @@ class TestTransitions(unittest.TestCase):
         cleanCache_And_LaunchPRE()
                     
     def test_UI_Transitions(self):
-        clickElement("Button_GoalScreen_CloseGoalScreen.png")
+        doubleClickElement("Button_GoalScreen_CloseGoalScreen.png")
         findElement("BaselineIMG_PREMenuBar.png")
         clickElement("Button_ExpertRoom.png")
         findElement("BaselineIMG_ExportRoomTimeline.png")

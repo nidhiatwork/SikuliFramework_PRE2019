@@ -13,7 +13,7 @@ class TestEffects(unittest.TestCase):
         cleanCache_And_LaunchPRE()
                   
     def test_UI_Effects(self):
-        clickElement("Button_GoalScreen_CloseGoalScreen.png")
+        doubleClickElement("Button_GoalScreen_CloseGoalScreen.png")
         findElement("BaselineIMG_PREMenuBar.png")
 
         clickElement("Button_ExpertRoom.png")         

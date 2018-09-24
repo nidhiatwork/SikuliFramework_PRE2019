@@ -20,7 +20,7 @@ def cleanCache_And_LaunchPRE():
                 closePRE()
                 sys.exit(0)
 
-        setAutoWaitTimeout(30)      
+        setAutoWaitTimeout(60)      
 
 def closePRE():
         print "~~~~~~~~Closing any open instance of PRE application~~~~~~~~"
@@ -44,6 +44,15 @@ def clickElement( element ):
         except:
                 stack = traceback.extract_stack(limit = 2)
                 print "Unable to click element: " + Constants.BaselineFolder + element + "\nBelow are details:\n" + str(sys.exc_info()[0]) + " -- line no. " + str(stack[0][1])
+                raise
+
+def doubleClickElement( element ):
+        print "Double clicking on element: " + element
+        try:
+                doubleClick(element)
+        except:
+                stack = traceback.extract_stack(limit = 2)
+                print "Unable to double click element: " + Constants.BaselineFolder + element + "\nBelow are details:\n" + str(sys.exc_info()[0]) + " -- line no. " + str(stack[0][1])
                 raise
 
 def hoverElement( element ):
@@ -73,10 +82,19 @@ def typeKeys( data ):
                 print "Unable to type: " + data + "\nBelow are exception details:\n" + str(sys.exc_info()[0]) + " -- line no. " + str(stack[0][1])
                 raise
 
-def dragDropElement(sourceImg, destImg):
+def dragDropElement( sourceImg, destImg ):       
         print "Dragging and dropping: " + sourceImg + " to " + destImg
         try:
-                dragDrop(sourceImg, destImg)
+                clickElement(sourceImg)
+                mouseDown(Button.LEFT)
+                mouseMove(4,4)
+                wait(1)
+                mouseMove(sourceImg)
+                wait(1)
+                mouseMove(destImg)
+                wait(1)
+                mouseUp()
+
         except:
                 stack = traceback.extract_stack(limit = 2)
                 print "Unable to drag and drop: " + Constants.BaselineFolder + sourceImg + "to " + Constants.BaselineFolder + sourceImg + "\nBelow are exception details:\n" + str(sys.exc_info()[0]) + " -- line no. " + str(stack[0][1])
