@@ -20,6 +20,7 @@ class TestTransitions(unittest.TestCase):
         
         clickElement("Button_RHSPanels_Transitions.png")
         assertElementExists("DropDown_TransitionssPanel_AllCategories.png")
+        wait(2)
         clickElement("DropDown_TransitionssPanel_AllCategories.png")
         assertElementExists("BaselineIMG_Transitions_AllCategories.png")        
         clickElement("Transition_Category_3DMotion.png")       

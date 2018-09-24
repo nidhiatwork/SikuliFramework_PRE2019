@@ -23,6 +23,7 @@ class TestEffects(unittest.TestCase):
         
         clickElement("Button_RHSPanels_Effects.png")
         findElement("DropDown_EffectsPanel_AllCategories.png")
+        wait(2)
         clickElement("DropDown_EffectsPanel_AllCategories.png")
         findElement("BaselineIMG_Effects_AllCategories.png")
 
