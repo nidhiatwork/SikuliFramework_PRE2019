@@ -29,61 +29,61 @@ def closePRE():
 
         
 def findElement( element ):       
-        print "Finding element: " + element
+        print "Finding element: " + str(element)
         try:
                 find(element)
         except:
                         stack = traceback.extract_stack(limit = 2)
-                        print "Unable to find element: " + Constants.BaselineFolder + element + "\nBelow are details:\n" + str(sys.exc_info()[0]) + " -- line no. " + str(stack[0][1])
+                        print "Unable to find element: " + Constants.BaselineFolder + str(element) + "\nBelow are details:\n" + str(sys.exc_info()[0]) + " -- line no. " + str(stack[0][1])
                         raise
 
 def clickElement( element ):
-        print "Clicking on element: " + element
+        print "Clicking on element: " + str(element)
         try:
                 click(element)
         except:
                 stack = traceback.extract_stack(limit = 2)
-                print "Unable to click element: " + Constants.BaselineFolder + element + "\nBelow are details:\n" + str(sys.exc_info()[0]) + " -- line no. " + str(stack[0][1])
+                print "Unable to click element: " + Constants.BaselineFolder + str(element) + "\nBelow are details:\n" + str(sys.exc_info()[0]) + " -- line no. " + str(stack[0][1])
                 raise
 
 def doubleClickElement( element ):
-        print "Double clicking on element: " + element
+        print "Double clicking on element: " + str(element)
         try:
                 doubleClick(element)
         except:
                 stack = traceback.extract_stack(limit = 2)
-                print "Unable to double click element: " + Constants.BaselineFolder + element + "\nBelow are details:\n" + str(sys.exc_info()[0]) + " -- line no. " + str(stack[0][1])
+                print "Unable to double click element: " + Constants.BaselineFolder + str(element) + "\nBelow are details:\n" + str(sys.exc_info()[0]) + " -- line no. " + str(stack[0][1])
                 raise
 
 def hoverElement( element ):
-        print "Hovering on element: " + element
+        print "Hovering on element: " + str(element)
         try:
                 hover(element)
         except:
                 stack = traceback.extract_stack(limit = 2)
-                print "Unable to hover on element: " + Constants.BaselineFolder + element + "\nBelow are details:\n" + str(sys.exc_info()[0]) + " -- line no. " + str(stack[0][1])
+                print "Unable to hover on element: " + Constants.BaselineFolder + str(element) + "\nBelow are details:\n" + str(sys.exc_info()[0]) + " -- line no. " + str(stack[0][1])
                 raise
 
 def assertElementExists( element ):
-        print "Asserting whether element exists: " + element
+        print "Asserting whether element exists: " + str(element)
         try:
                 assert(exists(element))
         except AssertionError:
                 stack = traceback.extract_stack(limit = 2)
-                print "Unable to assert image exists: " + Constants.BaselineFolder + element + "\nBelow are details:\n" + str(sys.exc_info()[0]) + " -- line no. " + str(stack[0][1])
+                print "Unable to assert image exists: " + Constants.BaselineFolder + str(element) + "\nBelow are details:\n" + str(sys.exc_info()[0]) + " -- line no. " + str(stack[0][1])
                 raise
 
 def typeKeys( data ):
-        print "Typing: " + data
+        print "Typing: " + str(data)
         try:
                 type(data)
         except:
                 stack = traceback.extract_stack(limit = 2)
-                print "Unable to type: " + data + "\nBelow are exception details:\n" + str(sys.exc_info()[0]) + " -- line no. " + str(stack[0][1])
+                print "Unable to type: " + str(data) + "\nBelow are exception details:\n" + str(sys.exc_info()[0]) + " -- line no. " + str(stack[0][1])
                 raise
 
 def dragDropElement( sourceImg, destImg ):       
-        print "Dragging and dropping: " + sourceImg + " to " + destImg
+        print "Dragging and dropping: " + str(sourceImg) + " to " + str(destImg)
         try:
                 clickElement(sourceImg)
                 mouseDown(Button.LEFT)
@@ -101,7 +101,7 @@ def dragDropElement( sourceImg, destImg ):
                 raise
 
 def pressAndHoldElement( element, seconds ):       
-        print "Pressing and holding on element: " + element + "for " + str(seconds) + "seconds"
+        print "Pressing and holding on element: " + str(element) + "for " + str(seconds) + "seconds"
         try:
                 
                 hoverElement(element)
@@ -111,5 +111,5 @@ def pressAndHoldElement( element, seconds ):
                 mouseUp()
         except:
                 stack = traceback.extract_stack(limit = 2)
-                print "Unable to press and hold on element: " + Constants.BaselineFolder + element + "\nBelow are exception details:\n" + str(sys.exc_info()[0]) + " -- line no. " + str(stack[0][1])
+                print "Unable to press and hold on element: " + Constants.BaselineFolder + str(element) + "\nBelow are exception details:\n" + str(sys.exc_info()[0]) + " -- line no. " + str(stack[0][1])
                 raise

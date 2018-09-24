@@ -43,7 +43,7 @@ class TestGlassPane_GE(unittest.TestCase):
         wait(5)
         mouseUp()
 
-        dragDropElement("ProjectAssets_MediaFile_active.png", "VideoTrack2.png")        
+        dragDropElement("ProjectAssets_MediaFile_active.png", Pattern("VideoTrack2.png").similar(0.99))        
         findElement("GlassPane_Step6_AddOverlay_1.png")
         wait(3)
         clickElement("Button_GE_Next.png")        
@@ -57,7 +57,7 @@ class TestGlassPane_GE(unittest.TestCase):
         wait(5)
         mouseUp()
 
-        dragDropElement("MatteOverlay01.png", "AudioTrack3.png")
+        dragDropElement("MatteOverlay01.png", Pattern("AudioTrack3.png").similar(0.99))
         findElement("BaselineIMG_GE_MatteOverlaysHighlighted.png")
         wait(2)
         findElement("Button_GE_Next.png")
