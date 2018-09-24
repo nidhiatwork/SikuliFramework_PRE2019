@@ -1,6 +1,4 @@
 .vscode/launch.json
 TestScripts/*.class
 TestScripts/try.py
-Output/*.html
-Output/Screenshots/*.png
 BatFiles/TestAreas.txt
