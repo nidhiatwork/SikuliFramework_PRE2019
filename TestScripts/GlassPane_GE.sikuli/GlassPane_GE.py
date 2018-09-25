@@ -57,7 +57,7 @@ class TestGlassPane_GE(unittest.TestCase):
         wait(5)
         mouseUp()
 
-        dragDropElement("MatteOverlay01.png", Pattern("AudioTrack3.png").similar(0.99))
+        dragDropElement("MatteOverlay01.png", Pattern("AudioTrack3.png").similar(0.90))
         findElement("BaselineIMG_GE_MatteOverlaysHighlighted.png")
         wait(2)
         findElement("Button_GE_Next.png")
