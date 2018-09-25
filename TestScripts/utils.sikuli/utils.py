@@ -97,11 +97,11 @@ def dragDropElement( sourceImg, destImg ):
 
         except:
                 stack = traceback.extract_stack(limit = 2)
-                print "Unable to drag and drop: " + Constants.BaselineFolder + str(sourceImg) + "to " + Constants.BaselineFolder + str(destImg) + "\nBelow are exception details:\n" + str(sys.exc_info()[0]) + " -- line no. " + str(stack[0][1])
+                print "Unable to drag and drop: " + Constants.BaselineFolder + str(sourceImg) + " to " + Constants.BaselineFolder + str(destImg) + "\nBelow are exception details:\n" + str(sys.exc_info()[0]) + " -- line no. " + str(stack[0][1])
                 raise
 
 def pressAndHoldElement( element, seconds ):       
-        print "Pressing and holding on element: " + str(element) + "for " + str(seconds) + "seconds"
+        print "Pressing and holding on element: " + str(element) + " for " + str(seconds) + "seconds"
         try:
                 
                 hoverElement(element)
