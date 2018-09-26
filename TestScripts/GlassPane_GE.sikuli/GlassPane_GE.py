@@ -38,6 +38,7 @@ class TestGlassPane_GE(unittest.TestCase):
 
         wait(2)
         hoverElement("Button_Timeline_Up.png")
+        doubleClickElement("Button_Timeline_Up.png")
         mouseDown(Button.LEFT)
         mouseMove("Button_Timeline_Up.png")
         wait(5)
@@ -52,6 +53,7 @@ class TestGlassPane_GE(unittest.TestCase):
         wait(3)
         
         hoverElement("Button_Timeline_Up.png")
+        doubleClickElement("Button_Timeline_Up.png")
         mouseDown(Button.LEFT)
         mouseMove("Button_Timeline_Up.png")
         wait(5)
@@ -71,6 +73,7 @@ class TestGlassPane_GE(unittest.TestCase):
         
         wait(2)
         hoverElement("Button_Timeline_Up.png")
+        doubleClickElement("Button_Timeline_Up.png")
         mouseDown(Button.LEFT)
         mouseMove("Button_Timeline_Up.png")
         wait(5)
