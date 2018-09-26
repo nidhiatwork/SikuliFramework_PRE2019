@@ -13,6 +13,7 @@ class TestTransitions(unittest.TestCase):
                     
     def test_UI_Transitions(self):
         doubleClickElement("Button_GoalScreen_CloseGoalScreen.png")
+        wait(2)
         findElement("BaselineIMG_PREMenuBar.png")
         clickElement("Button_ExpertRoom.png")
         findElement("BaselineIMG_ExportRoomTimeline.png")

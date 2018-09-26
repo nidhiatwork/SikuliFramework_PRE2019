@@ -12,6 +12,7 @@ class TestGlassPane_GE(unittest.TestCase):
 
     def test_UI_GlassPane_GE(self):
         doubleClickElement("Button_GoalScreen_CloseGoalScreen.png")
+        wait(2)
         findElement("BaselineIMG_PREMenuBar.png")
 
         clickElement("Button_GuidedRoom.png")

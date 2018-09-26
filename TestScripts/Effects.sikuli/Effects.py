@@ -14,6 +14,7 @@ class TestEffects(unittest.TestCase):
                   
     def test_UI_Effects(self):
         doubleClickElement("Button_GoalScreen_CloseGoalScreen.png")
+        wait(2)
         findElement("BaselineIMG_PREMenuBar.png")
 
         clickElement("Button_ExpertRoom.png")         
